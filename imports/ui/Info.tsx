@@ -7,17 +7,22 @@ export const Info = () => {
     return LinksCollection.find().fetch();
   });
 
+  const onClickDelete = () => {
+  }
+
   const makeLink = (link: Link) => {
     return (
-      <li key={link._id}>
-        <a href={link.url} target="_blank">{link.title}</a>
-      </li>
+      <>
+        <li key={link._id}>
+          <button type="button" onClick={onClickDelete} >delete</button>
+          <a href={link.url} target="_blank">{link.title}</a>
+        </li>
+      </>
     );
   }
 
   return (
     <div>
-      <h2>Learn Meteor!</h2>
       <ul>{links.map(makeLink)}</ul>
     </div>
   );
