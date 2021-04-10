@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import 'assets/stylesheets/styles.scss';
 
 export const Header = () => {
 

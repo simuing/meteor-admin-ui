@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from '../../src/common/header/Header';
+import { Header } from './common/header/Header';
 import { Info } from './Info';
 
 export const App = () => {
