@@ -1,35 +1,19 @@
 import { Meteor } from 'meteor/meteor';
-import { LinksCollection } from '/imports/api/links';
+import { GuestBookCollection, GuestBookAPI } from '/imports/db/GuestBookCollection';
 
-function insertLink(title: string, url: string) {
-  LinksCollection.insert({ title, url, createdAt: new Date() });
-}
+// function insertLink(name: string, contents: string) {
+//   GuestBookCollection.insert({ name, contents, createdAt: new Date() });
+// }
 
-function deleteLink(title: string, url: string) {
-  LinksCollection.insert({ title, url, createdAt: new Date() });
-}
+// function deleteLink(name: string, contents: string) {
+//   GuestBookCollection.insert({ name, contents, createdAt: new Date() });
+// }
 
 Meteor.startup(() => {
-  // If the Links collection is empty, add some data.
-  if (LinksCollection.find().count() === 0) {
-    insertLink(
-      'Do the Tutorial',
-      'https://www.meteor.com/tutorials/react/creating-an-app'
-    );
-
-    insertLink(
-      'Follow the Guide',
-      'http://guide.meteor.com'
-    );
-
-    insertLink(
-      'Read the Docs',
-      'https://docs.meteor.com'
-    );
-
-    insertLink(
-      'Discussions',
-      'https://forums.meteor.com'
-    );
+  if (GuestBookCollection.find().count() === 0) {
+    GuestBookAPI.insert('username1','asdfasdfdsasdFsaf');
+    GuestBookAPI.insert('username2','asdfasdfdsasdFsaf');
+    GuestBookAPI.insert('username3','asdfasdfdsasdFsaf');
+    GuestBookAPI.insert('username4','asdfasdfdsasdFsaf'); 
   } 
 });
