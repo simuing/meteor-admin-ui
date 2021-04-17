@@ -41,3 +41,13 @@ meteor add underscore
 ```
 <br/>
 
+
+https://github.com/VeliovGroup/flow-router/blob/master/docs/quick-start.md
+> add router
+``` javascript 
+meteor add ostrio:flow-router-extra
+```
+<br/>
+
+
+
