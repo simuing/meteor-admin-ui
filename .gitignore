@@ -1,4 +1,6 @@
 node_modules/
-.meteor/
+# .meteor/
 package-lock.json
 tsconfig.json
+.meteor/.id
+.meteor/.finished-upgraders
