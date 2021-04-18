@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'underscore';
 import { useTracker } from 'meteor/react-meteor-data';
-import { GuestBookCollection, GuestBook, GuestBookAPI } from '../../../db/GuestBookCollection';
+import { GuestBookCollection, GuestBook, GuestBookAPI } from '/imports/db/GuestBookCollection';
 
 export const GuestBookInfo = () => {
   const guestBooks = useTracker(() => {

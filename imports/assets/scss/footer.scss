@@ -1,8 +1,12 @@
 /* footer styles */
 footer {
+    color: $color-white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     bottom: 0px;
     width: 100%;
     min-height: 100px;
     text-align: center;
-    background-color: gainsboro;
+    background-color: $color-grullo;
 }

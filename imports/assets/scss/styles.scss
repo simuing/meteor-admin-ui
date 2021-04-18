@@ -1,4 +1,11 @@
+/* reset styles (맨 위에 선언해야 합니다.) */
+@import "reset.scss";
+@import 'colors.scss';
+
 /* common styles */
 @import 'header.scss';
 @import 'footer.scss';
 @import 'leftmenu.scss';
+@import 'container.scss';
+
+/* pages styles */
