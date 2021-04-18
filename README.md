@@ -2,7 +2,7 @@
 simuing site
 <br/>
 
-### 기술스택
+### 사용언어
 - Meteor Framework
   - MongoDB
   - React
@@ -13,7 +13,6 @@ simuing site
   - ostrio:flow-router-extra
 <br/>
 
-#### 패키지 생성
 > create project
 ``` javascript 
 meteor create --typescript simuing-lab
