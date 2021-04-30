@@ -1,0 +1,35 @@
+
+
+.btn-move {
+    color: blue;
+    min-width: 1.5rem;
+    min-height: 1.5rem;
+    background-color: rgba(0,0,0,0);
+    border: none;
+
+    :hover {
+        background-color: gainsboro;
+    }
+}
+
+.btn-remove {
+    color: red;
+    min-width: 1.5rem;
+    min-height: 1.5rem;
+    background-color: rgba(0,0,0,0);
+    border: none;
+
+    &:hover {
+        cursor: pointer;
+        background-color: gainsboro;
+    }
+}
+
+.btn-insert {
+    color: white;
+    min-height: 2rem;
+    margin-top: 1rem;
+    background-color: gray;
+    border: none;
+    border-radius: 3px;
+}

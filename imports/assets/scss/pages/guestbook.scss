@@ -1,0 +1,24 @@
+
+#sz-guestbook-list {
+    li {
+        display: inline-block;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        min-width: 20rem;
+        border: 1px solid gainsboro;
+
+        & + & {
+            margin: 1rem;
+        }
+
+        .sz-guestbook-head {
+            
+        }
+        .sz-guestbook-body {
+
+        }
+        .sz-guestbook-footer {
+
+        }
+    }
+}
