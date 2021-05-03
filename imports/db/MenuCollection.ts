@@ -21,7 +21,7 @@ export interface Menu {
     menulv: string;
     menugb: string;
     menuor: string;
-    view: string; // Y or N
+    showyn: string; // Y or N
     createdAt: Date;
 }
 
@@ -34,7 +34,7 @@ export const defaultMenu: Array<Menu> = [
         menulv:  '1',
         menugb:  'G',
         menuor:  '1',
-        view: 'Y',
+        showyn: 'Y',
         createdAt: new Date()
     },
     {
@@ -45,18 +45,18 @@ export const defaultMenu: Array<Menu> = [
         menulv:  '1',
         menugb:  'G',
         menuor:  '1',
-        view: 'N',
+        showyn: 'N',
         createdAt: new Date()
     },
     {
         menucd: 'MNST00',
         menuup: 'MN0000',
-        menunm:  'study',
+        menunm:  'Study',
         url:  '/study',
         menulv:  '1',
         menugb:  'G',
         menuor:  '1',
-        view: 'Y',
+        showyn: 'Y',
         createdAt: new Date()
     },
     {
@@ -67,7 +67,7 @@ export const defaultMenu: Array<Menu> = [
         menulv:  '2',
         menugb:  'G',
         menuor:  '1',
-        view: 'Y',
+        showyn: 'Y',
         createdAt: new Date()
     },
 ]

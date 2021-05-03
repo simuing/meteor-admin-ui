@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useTracker } from 'meteor/react-meteor-data';
+import { Link, NavLink } from 'react-router-dom';
 import { MenuCollection, MenuAPI } from '/imports/db/MenuCollection';
 import { Menu } from '/imports/db/MenuCollection';
 // import { Picker } from 'meteor/meteorhacks:picker';
-
+// import { Picker } from 'meteor/meteorhacks:picker';
 
 export const LeftMenu = () => {
     const [showMenu, setShowMenu] = useState(true);
@@ -23,23 +24,21 @@ export const LeftMenu = () => {
         }
     }, [])
 
-    const goMenu = (menu: Menu) => {
-        console.log(menu.url)
+    const goMenu = () => {
+        // debugger;
     }
 
     const makeMenu = (menu: Menu) => {
-        if(menu.view!=='Y') {
-            return null;
-        } else {
+        // if(menu.menulv!=='1' || menu.showyn!=='Y') {
+        //     return null;
+        // } else {
             return (
-                <li key={menu.menucd} onClick={()=>goMenu(menu)}>
-                    <a href='#'>
-                        {`${showMenu ? menu.menunm : 'a'}`}
-                    </a>
-                    {/* <Link to="/">dd</Link> */}
+                <li key={menu.menucd}>
+                    {/* <a href='#'>{`${showMenu ? menu.menunm : 'a'}`}</a> */}
+                    <Link id={menu.menucd} to={menu.url}>{`${showMenu ? menu.menunm : 'a'}`}</Link>
                 </li>
             )
-        }
+        // }
     }
 
     return (
