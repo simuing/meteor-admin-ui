@@ -1,11 +1,16 @@
 /* reset styles (맨 위에 선언해야 합니다.) */
-@import "reset.scss";
-@import 'colors.scss';
+@import "common/reset";
+@import "common/colors";
+@import "common/common";
+@import "common/buttons";
+@import "common/forms";
 
 /* common styles */
-@import 'header.scss';
-@import 'footer.scss';
-@import 'leftmenu.scss';
-@import 'container.scss';
+@import "components/container";
+@import "components/header";
+@import "components/footer";
+@import "components/leftmenu";
 
 /* pages styles */
+@import "pages/pages";
+@import "pages/guestbook";

@@ -16,18 +16,24 @@ export const GuestBookInfo = () => {
 
   const makeGuestBook = (guestBook: GuestBook) => {
     return (
-      <>
-        <li key={guestBook._id}>
+      <li key={guestBook._id}>
+        <span>id: {guestBook._id}</span>
+        <div className="sz-guestbook-head cm-d-block cm-text-right">
+          <button className="btn-remove" type="button" onClick={()=>onClickDelete(guestBook)} >X</button>
+        </div>
+        <div className="sz-guestbook-body">
           <p>작성자: {guestBook.name ? guestBook.name : ''}</p>
           <p>내용: {guestBook.contents ? guestBook.contents : ''}</p>
-          <button type="button" onClick={()=>onClickDelete(guestBook)} >방명록 삭제</button>
-        </li>
-      </>
+        </div>
+        <div className="sz-guestbook-footer cm-d-block cm-text-right">
+          <button className="btn-move" type="button">=</button>
+        </div>
+      </li>
     );
   }
 
   return (
-    <div>
+    <div id="sz-guestbook-list">
       <ul>{guestBooks.map(makeGuestBook)}</ul>
     </div>
   );

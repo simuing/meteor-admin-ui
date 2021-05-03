@@ -1,16 +1,40 @@
 /* header style -> import styles.scss */
-header {
+header#sz-header {
     color: $color-black;
     width: 100%;
     min-height: 4rem;
     padding: 1rem;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    // justify-content: center;
+    align-items: center;
     background-color: $color-white;
     border-bottom: 1px solid gainsboro;
 
     &:hover {
         transition: 0.3s;
+    }
+
+    .sz-header-left {
+        flex: 1;
+        text-align: left;
+    }
+
+    .sz-header-center {
+        flex: 1;
+        text-align: center;
+
+        a + a {
+            padding-left: 1.5rem;
+        }
+    }
+
+    .sz-header-right {
+        flex: 1;
+        text-align: right;
+
+        a + a {
+            padding-left: 1.5rem;
+        }
     }
 }

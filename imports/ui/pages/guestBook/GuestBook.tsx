@@ -4,12 +4,11 @@ import { GuestBookInfo } from "./GuestBookInfo";
 
 export const GuestBook = () => {
     return (
-        <div id="sz-guest-book">
-            <h1>방명록</h1>
-            <p>방명록 등록하기</p>
+        <>
+            <h3 className="page-subtitle">방명록 등록</h3>
             <GuestBookForm></GuestBookForm>
-            <p>방명록 목록</p>
+            <h3 className="page-subtitle">방명록 목록</h3>
             <GuestBookInfo></GuestBookInfo>
-        </div>
+        </>
     )
 }
