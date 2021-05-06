@@ -1,24 +1,18 @@
+import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
-
-export interface Chat {
-    _id?: string;
-    color: string; //ex) #FFFFFF
-    name: string;
-    contents: string;
-    createdAt: Date;
-}
+import { Chat } from './common/IChat';
 
 export const ChatCollection = new Mongo.Collection<Chat>('chats');
 
 Meteor.methods({
-    ChatInit: function() {
+    initChat: function() {
         console.info('[INFO] Chat data init')
         ChatCollection.remove({});
     },
-    ChatInsert: function (color: string, name: string, contents: string) {
+    insertChat: function (color: string, name: string, contents: string) {
         ChatCollection.insert({ color, name, contents, createdAt: new Date() });
     },
-    ChatRemove: function (id: string) {
+    removeChat: function (id: string) {
         ChatCollection.remove(id);
     }
 });

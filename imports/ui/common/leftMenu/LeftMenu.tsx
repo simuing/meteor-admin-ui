@@ -1,21 +1,17 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Link, useLocation } from 'react-router-dom';
 import { MenuCollection } from '/imports/db/MenuCollection';
-import { Menu } from '../../../db/MenuCollection';
+import { IMenu } from '../../../db/common/IMenu';
 
 export const LeftMenu = () => {
-    const [showMenu, setShowMenu] = useState(true);
-    const pathName = useLocation().pathname;
-
     /// 메뉴 순서(menuor)대로 출력
     const menuList = useTracker(() => {
         return MenuCollection.find({}, {sort: [['menulv', 'asc'],['menuor', 'asc']]}).fetch();
     });
 
-    const onClickShowMenu = () =>{
-        setShowMenu(!showMenu);
-    }
+    const [showMenu, setShowMenu] = useState(true);
+    const pathName = useLocation().pathname;
 
     useEffect(() => {
         console.info('[INFO] LeftMenu componentDidMount')
@@ -30,11 +26,26 @@ export const LeftMenu = () => {
         console.log(pathName);
     }, [pathName])
 
-    const getMenuList = (menu: Menu) => {
+    const onClickShowMenu = () => {
+        setShowMenu(!showMenu);
+    }
+
+    const isActiveMenu = (url: string) => {
+        if(pathName!='/' && url.includes(pathName)) {
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    const getMenuList = (menu: IMenu) => {
         if(menu.showyn=='Y') {
             return (
-                <li key={menu.menucd} className={menu.url.includes(pathName) ? 'active' : ''}>
-                    <Link ref={refMenu=>refMenu} id={menu.menucd} to={menu.url}>{`${showMenu ? menu.menunm : 'a'}`}</Link>
+                <li key={menu.menucd}>
+                    <Link id={menu.menucd} to={menu.url} className={isActiveMenu(menu.url) ? 'active' : ''}>
+                        {`${showMenu ? menu.menunm : menu.menugb}`}
+                    </Link>
                     {
                         menu.children
                         ? <ul className={`left-menu-child-${menu.menulv}`}>{menu.children.map(getMenuList)}</ul>

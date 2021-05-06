@@ -1,7 +1,8 @@
 import React from 'react';
-import _ from 'underscore';
 import { useTracker } from 'meteor/react-meteor-data';
-import { GuestBookCollection, GuestBook, GuestBookAPI } from '/imports/db/GuestBookCollection';
+import { GuestBookCollection } from '/imports/db/GuestBookCollection';
+import { GuestBook } from '../../../db/common/IGuestBook';
+import { Meteor } from 'meteor/meteor';
 
 export const GuestBookInfo = () => {
   const guestBooks = useTracker(() => {
@@ -10,7 +11,7 @@ export const GuestBookInfo = () => {
 
   const onClickDelete = (guestBook: GuestBook) => {
     if(guestBook._id) {
-      GuestBookAPI.remove(guestBook._id);
+      Meteor.call('removeGuestBook', guestBook._id);
     }
   }
 

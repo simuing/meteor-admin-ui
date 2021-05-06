@@ -44,13 +44,6 @@
             align-items: center;
             transition: 0.1s;
 
-            &.active {
-                color: $color-fe2f48;
-                cursor: pointer;
-                background-color: $color-white;
-                transition: 0.3s;
-            }
-
             &>a {
                 color: inherit;
                 display: block;
@@ -59,6 +52,13 @@
                 padding: 1rem;
 
                 &:hover{
+                    color: $color-fe2f48;
+                    cursor: pointer;
+                    background-color: $color-white;
+                    transition: 0.3s;
+                }
+
+                &.active {
                     color: $color-fe2f48;
                     cursor: pointer;
                     background-color: $color-white;

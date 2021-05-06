@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import React, { useState } from 'react';
 // import { check } from 'meteor/check';
 
@@ -15,20 +16,18 @@ export const GuestBookForm = () => {
     // GuestBookAPI.insert({name: formData.get('name'), contents: formData.get('contents')})
 
     // way 2
-    // GuestBookAPI.insert(name, contents);
-    Meteor.call('GuestBookInsert', name, contents)
+    Meteor.call('insertGuestBook', name, contents)
   }
 
-  const onNameChange = (value) => {
+  const onNameChange = (value: string) => {
     setName(value);
   }
-  const onContentsChange = (value) => {
+  const onContentsChange = (value: string) => {
     setContents(value);
   }
   const onClickReset = () => {
     if(confirm('Are you sure?')) {
-      // GuestBookAPI.init();
-      Meteor.call('GuestBookInit')
+      Meteor.call('initGuestBook')
     }
   }
 

@@ -2,6 +2,8 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useTracker } from 'meteor/react-meteor-data';
 import { ChatCollection } from '../../../../db/ChatCollection';
 import { TwitterPicker } from 'react-color';
+import { Meteor } from 'meteor/meteor';
+import { IChat } from '../../../../db/common/IChat';
 
 export const Chat = () => {
     const [color, setColor] = useState('');
@@ -9,7 +11,7 @@ export const Chat = () => {
     const [contents, setContents] = useState('');
     const contentsRef = useRef(null);
 
-    const chats = useTracker(() => {
+    const chats: IChat[] = useTracker(() => {
         return ChatCollection.find().fetch();
     });
 
@@ -22,9 +24,11 @@ export const Chat = () => {
         color ? setColor(color) : setColor("#8ED1FC");
 
         // 스크롤 이벤트 적용
-        const chatArea: Element = document.querySelector("#chat-area");
-        chatArea.scrollTo(0,chatArea.scrollHeight); //채팅방 맨 밑으로 스크롤 이동
-        chatArea.addEventListener('scroll', () => handleScroll()); // 스크롤 이벤트 추가
+        const chatArea: Element|null = document.querySelector("#chat-area");
+        if(chatArea) {
+            chatArea.scrollTo(0,chatArea.scrollHeight); //채팅방 맨 밑으로 스크롤 이동
+            chatArea.addEventListener('scroll', () => handleScroll()); // 스크롤 이벤트 추가
+        }
         return () => {
             window.removeEventListener('scroll', () => {})
         }
@@ -34,9 +38,9 @@ export const Chat = () => {
      * @function handleScroll 채팅방 스크롤 이벤트
      */
     const handleScroll = useCallback(() => {
-        const chatArea: Element = document.querySelector("#chat-area");
-        const gobottom: Element = document.querySelector(".btn-gobottom");
-        if(gobottom) {
+        const chatArea: Element|null = document.querySelector("#chat-area");
+        const gobottom: Element|null = document.querySelector(".btn-gobottom");
+        if(chatArea && gobottom) {
             gobottom.style.bottom = (10-chatArea.scrollTop) + "px";
         }
     }, []);
@@ -56,25 +60,25 @@ export const Chat = () => {
         window.localStorage.setItem('nickname', name);
         window.localStorage.setItem('color', color);
 
-        Meteor.call('ChatInsert', !color ? "#b1edff" : color, name, contents);
-        document.getElementById("chat-area").scrollTo(0,document.querySelector("#chat-area").scrollHeight);
+        Meteor.call('insertChat', !color ? "#b1edff" : color, name, contents);
+        document.querySelector("#chat-area").scrollTo(0,document.querySelector("#chat-area").scrollHeight);
         setContents('');
     }
     
     const goScrollBottom = () => {
-        document.getElementById("chat-area").scrollTo(0,document.querySelector("#chat-area").scrollHeight);
+        document.querySelector("#chat-area").scrollTo(0,document.querySelector("#chat-area").scrollHeight);
     }
 
-    const onNameChange = (value) => {
+    const onNameChange = (value: string) => {
         setName(value);
     }
 
-    const onContentsChange = (value) => {
+    const onContentsChange = (value: string) => {
         setContents(value);
     }
 
     const onRemove = (id: string) => {
-        Meteor.call('ChatRemove', id);
+        Meteor.call('removeChat', id);
     }
 
     const getDate = (createAt: string) => {
@@ -87,7 +91,7 @@ export const Chat = () => {
 
     const onClickReset = () => {
         if(confirm('일괄 삭제하시겠습니까?')){
-            Meteor.call('ChatInit')
+            Meteor.call('initChat')
         }
     }
 
