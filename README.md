@@ -1,15 +1,11 @@
-# simuing-lab
-Meteor admin templete design
-<br/>
-
-## used
+# meteor-admin-ui
+### used
 - Meteor(React)
 - MongoDB
 - typescript
 <br/>
 
----
-
-## version 0.0.1
-### 채팅방
+### feature
+#### 채팅방
+version 0.0.1
 <img src="./imports/assets/screenshot/20210506.png"/>
