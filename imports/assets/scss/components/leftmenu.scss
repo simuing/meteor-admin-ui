@@ -23,7 +23,10 @@
         
         #sz-left-menu-btn {
             color: $color-white;
-            width: 3rem;
+            // width: 3rem;
+            width: 100%;
+            text-align: right;
+            padding-right: 1rem;
             height: 3rem;
             float: right;
             background-color: $color-fe2f48;
@@ -33,24 +36,39 @@
 
     #sz-left-menu-body {
         li {
-            color: $color-white;
-            // padding: 1rem;
+            color: #FFFFFF;
+            min-height: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
             transition: 0.1s;
 
-            &:hover{
-                cursor: pointer;
+            &.active {
                 color: $color-fe2f48;
+                cursor: pointer;
                 background-color: $color-white;
                 transition: 0.3s;
             }
 
             &>a {
-                display: block;
-                min-height: inherit;
-                min-width: inherit;
-                padding: 1rem;
                 color: inherit;
+                display: block;
+                width: 100%;
+                min-height: inherit;
+                padding: 1rem;
+
+                &:hover{
+                    color: $color-fe2f48;
+                    cursor: pointer;
+                    background-color: $color-white;
+                    transition: 0.3s;
+                }
             }
+        }
+
+        .left-menu-child-2 {
+            flex: 1;
         }
     }
 

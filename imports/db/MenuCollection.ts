@@ -25,11 +25,12 @@ export interface Menu {
     menuor: string;
     showyn: string; // Y or N
     createdAt: Date;
+    children?: Array<Menu>;
 }
 
 export const defaultMenu: Array<Menu> = [
     {
-        menucd: 'MNDB00',
+        menucd: 'DB0000',
         menuup: 'MN0000',
         menunm:  '대시보드',
         url:  '/dashboard',
@@ -40,63 +41,78 @@ export const defaultMenu: Array<Menu> = [
         createdAt: new Date()
     },
     {
-        menucd: 'MNGB00',
+        menucd: 'MY0000',
+        menuup: 'MN0000',
+        menunm:  '마이페이지',
+        url:  '/mypage',
+        menulv:  '1',
+        menugb:  'G',
+        menuor:  '1',
+        showyn: 'N',
+        createdAt: new Date()
+    },
+    {
+        menucd: 'CT0000',
+        menuup: 'MN0000',
+        menunm:  '채팅방',
+        url:  '/chat',
+        menulv:  '1',
+        menugb:  'C',
+        menuor:  '2',
+        showyn: 'Y',
+        createdAt: new Date()
+    },
+    {
+        menucd: 'ST0000',
+        menuup: 'MN0000',
+        menunm:  '공부방',
+        url:  '/study',
+        menulv:  '1',
+        menugb:  'ST',
+        menuor:  '3',
+        showyn: 'Y',
+        createdAt: new Date(),
+        children: [
+            {
+                menucd: 'ST0001',
+                menuup: 'MNST00',
+                menunm:  '타입스크립트',
+                url:  '/study/typescript',
+                menulv:  '2',
+                menugb:  'G',
+                menuor:  '1',
+                showyn: 'Y',
+                createdAt: new Date(),
+                children: [
+                    {
+                        menucd: 'ST0011',
+                        menuup: 'MNST00',
+                        menunm:  '타입스크립트 입문 - 1',
+                        url:  '/study/typescript/1',
+                        menulv:  '2',
+                        menugb:  'G',
+                        menuor:  '1',
+                        showyn: 'Y',
+                        createdAt: new Date()
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        menucd: 'GB0000',
         menuup: 'MN0000',
         menunm:  '방명록',
         url:  '/guestbook',
         menulv:  '1',
         menugb:  'G',
         menuor:  '999',
-        showyn: 'N',
-        createdAt: new Date()
-    },
-    {
-        menucd: 'MNST00',
-        menuup: 'MN0000',
-        menunm:  '채팅방',
-        url:  '/chat',
-        menulv:  '1',
-        menugb:  'G',
-        menuor:  '3',
         showyn: 'Y',
         createdAt: new Date()
     },
-    {
-        menucd: 'MNST01',
-        menuup: 'MNST00',
-        menunm:  'typescript',
-        url:  '/study/typescript',
-        menulv:  '2',
-        menugb:  'G',
-        menuor:  '2',
-        showyn: 'N',
-        createdAt: new Date()
-    },
+    
 ]
 
-
-
-/* 메뉴 API 정의 방법  */
-// 1. 변수로 선언 -> MenuAPI를 import하는 화면에만 로드된다.
-export const MenuAPI = {
-    init: function() {
-        console.info('[INFO] Menu data init')
-        MenuCollection.remove({});
-        defaultMenu.forEach(menu => {
-            MenuCollection.insert({ ...menu });
-        });
-    },
-    insert: function(menu: Menu) {
-        console.info('[INFO] Menu data insert', menu);
-        MenuCollection.insert({ ...menu });
-    },
-    remove: function(id: string) {
-        console.info('[INFO] Menu data remove', id)
-        MenuCollection.remove(id);
-    }
-}
-
-// 2. Meteor.methods({})에 선언 -> 
 Meteor.methods({
     MenuInit: function() {
         console.info('[INFO] Menu data init')

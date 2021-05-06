@@ -6,18 +6,18 @@ export const Header = () => {
   return (
     <header id="sz-header">
       <div className="sz-header-left">
-        LOGO
+        <Link to="/dashboard">LOGO</Link>
       </div>
 
       <div className="sz-header-center">
-        <Link to="/dashboard">HOME</Link>
-        <Link to="/chat">채팅방</Link>
+        
         <Link to="/guestbook">방명록</Link>
       </div>
 
       <div className="sz-header-right">
-        <a>Login</a>
-        <a>MyPage</a>
+        <Link to="/dashboard">HOME</Link>
+        <Link to="/login">로그인</Link>
+        <Link to="/mypage">마이페이지</Link>
       </div>
     </header>
   );
