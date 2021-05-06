@@ -1,10 +1,10 @@
 import { Meteor } from 'meteor/meteor';
 import assert from 'assert';
 
-describe('simuing-lab', function () {
+describe('meteor-admin-ui', function () {
   it('package.json has correct name', async function () {
     const { name } = await import('../package.json');
-    assert.strictEqual(name, 'simuing-lab');
+    assert.strictEqual(name, 'meteor-admin-ui');
   });
 
   if (Meteor.isClient) {
