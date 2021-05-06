@@ -1,16 +1,14 @@
 # simuing-lab
-simuing site
+Meteor admin templete design
 <br/>
 
-### used
-Meteor Framework
-  - MongoDB
-  - React
-  - typescript
-- add meteor npm package
-  - fourseven:scss
-  - react-color
+## used
+- Meteor(React)
+- MongoDB
+- typescript
 <br/>
+
+---
 
 ## version 0.0.1
 ### 채팅방
