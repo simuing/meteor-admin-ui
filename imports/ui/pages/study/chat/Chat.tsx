@@ -14,18 +14,28 @@ export const Chat = () => {
     });
 
     useEffect(() => {
-        const chatArea = document.querySelector("#chat-area");
-        chatArea.scrollTo(0,chatArea.scrollHeight);
+        // 정보조회
+        const nick = window.localStorage.getItem('nickname');
+        const color = window.localStorage.getItem('color');
 
-        chatArea.addEventListener('scroll', () => handleScroll());
+        nick ? setName(nick) : setName('Guest');
+        color ? setColor(color) : setColor("#8ED1FC");
+
+        // 스크롤 이벤트 적용
+        const chatArea: Element = document.querySelector("#chat-area");
+        chatArea.scrollTo(0,chatArea.scrollHeight); //채팅방 맨 밑으로 스크롤 이동
+        chatArea.addEventListener('scroll', () => handleScroll()); // 스크롤 이벤트 추가
         return () => {
             window.removeEventListener('scroll', () => {})
         }
     },[])
 
+    /**
+     * @function handleScroll 채팅방 스크롤 이벤트
+     */
     const handleScroll = useCallback(() => {
-        const chatArea = document.querySelector("#chat-area");
-        const gobottom = document.querySelector(".btn-gobottom");
+        const chatArea: Element = document.querySelector("#chat-area");
+        const gobottom: Element = document.querySelector(".btn-gobottom");
         if(gobottom) {
             gobottom.style.bottom = (10-chatArea.scrollTop) + "px";
         }
@@ -33,6 +43,7 @@ export const Chat = () => {
 
     const onSubmitChat = (e) => {
         e.preventDefault();
+
         if(!name) {
             alert('닉네임을 입력해주세요.');
             return;
@@ -42,7 +53,8 @@ export const Chat = () => {
             return;
         }
 
-        // setCookie("expend", "true", 1);
+        window.localStorage.setItem('nickname', name);
+        window.localStorage.setItem('color', color);
 
         Meteor.call('ChatInsert', !color ? "#b1edff" : color, name, contents);
         document.getElementById("chat-area").scrollTo(0,document.querySelector("#chat-area").scrollHeight);

@@ -1,6 +1,8 @@
 import { Meteor } from 'meteor/meteor';
+import { ChatCollection } from '/imports/db/ChatCollection';
 import { GuestBookCollection } from '/imports/db/GuestBookCollection';
 import { MenuCollection, MenuAPI } from '/imports/db/MenuCollection';
+import '/imports/methods/GlobalMeteorMethods.ts';
 
 Meteor.startup(() => {
   // gueat book data set
@@ -10,15 +12,26 @@ Meteor.startup(() => {
   //   }
   // } 
 
-  // menu data set
-  if (MenuCollection.find().count() === 0) {
-    MenuAPI.init();
-  } else {
-    //Nothing
-  }
+  // // menu data set
+  // if (MenuCollection.find().count() === 0) {
+  //   MenuAPI.init();
+  // } else {
+  //   //Nothing
+  // }
+  // // menu data set
+  // if (ChatCollection.find().count() === 0) {
+   
+  // } else {
+  //   //Nothing
+  // }
 
   console.log('[LOG] Meteor Restart');
-  console.log('[INFO] guest cnt: ' + GuestBookCollection.find().count())
-  console.log('[INFO] menu cnt: ' + MenuCollection.find().count())
+  console.info('[INFO] guest cnt: ' + GuestBookCollection.find().count())
+  console.info('[INFO] menu cnt: ' + MenuCollection.find().count())
+  console.info('[INFO] menu cnt: ' + ChatCollection.find().count())
 
+  // 쿠키
+  // const nick = Meteor.call('getCookie', 'nickname');
+  // console.log(nick);
+  // console.log(document.cookie);
 });

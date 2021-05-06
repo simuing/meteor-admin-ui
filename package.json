@@ -1,5 +1,6 @@
 {
   "name": "simuing-lab",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "meteor run",
@@ -11,6 +12,7 @@
     "@babel/runtime": "^7.11.2",
     "meteor-node-stubs": "^1.0.1",
     "react": "^16.13.1",
+    "react-color": "^2.19.3",
     "react-dom": "^16.13.1",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0"
