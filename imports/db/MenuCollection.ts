@@ -1,6 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 
+export const MenuCollection = new Mongo.Collection<Menu>('menu');
+
 /*
     메뉴 코드 약어 설명
     MN : Menu Code
@@ -29,7 +31,7 @@ export const defaultMenu: Array<Menu> = [
     {
         menucd: 'MNDB00',
         menuup: 'MN0000',
-        menunm:  'Dashboard',
+        menunm:  '대시보드',
         url:  '/dashboard',
         menulv:  '1',
         menugb:  'G',
@@ -40,22 +42,22 @@ export const defaultMenu: Array<Menu> = [
     {
         menucd: 'MNGB00',
         menuup: 'MN0000',
-        menunm:  'GuestBook',
+        menunm:  '방명록',
         url:  '/guestbook',
         menulv:  '1',
         menugb:  'G',
-        menuor:  '1',
+        menuor:  '999',
         showyn: 'N',
         createdAt: new Date()
     },
     {
         menucd: 'MNST00',
         menuup: 'MN0000',
-        menunm:  'Study',
-        url:  '/study',
+        menunm:  '채팅방',
+        url:  '/chat',
         menulv:  '1',
         menugb:  'G',
-        menuor:  '1',
+        menuor:  '3',
         showyn: 'Y',
         createdAt: new Date()
     },
@@ -66,13 +68,13 @@ export const defaultMenu: Array<Menu> = [
         url:  '/study/typescript',
         menulv:  '2',
         menugb:  'G',
-        menuor:  '1',
-        showyn: 'Y',
+        menuor:  '2',
+        showyn: 'N',
         createdAt: new Date()
     },
 ]
 
-export const MenuCollection = new Mongo.Collection<Menu>('menu');
+
 
 /* 메뉴 API 정의 방법  */
 // 1. 변수로 선언 -> MenuAPI를 import하는 화면에만 로드된다.

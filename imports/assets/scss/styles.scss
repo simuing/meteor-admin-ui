@@ -6,6 +6,7 @@
 @import "common/forms";
 
 /* common styles */
+@import "animations/animations";
 @import "components/container";
 @import "components/header";
 @import "components/footer";
@@ -14,3 +15,4 @@
 /* pages styles */
 @import "pages/pages";
 @import "pages/guestbook";
+@import "pages/chat";

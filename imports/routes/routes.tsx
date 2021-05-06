@@ -1,6 +1,7 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router';
 import { createBrowserHistory } from 'history';
+import '../assets/scss/styles.scss';
 
 // route components
 import { Header } from '../ui/common/header/Header';
@@ -10,31 +11,34 @@ import { Footer } from '../ui/common/footer/Footer';
 import { Dashboard } from '../ui/pages/dashboard/Dashboard';
 import { GuestBook } from '../ui/pages/guestBook/GuestBook';
 import { TypeScript } from '../ui/pages/study/typescript/TypeScript';
-import '../assets/scss/styles.scss';
+import { Chat } from '../ui/pages/study/chat/Chat';
 
 const browserHistory = createBrowserHistory();
 
 export const renderRoutes = () => {
-  console.log('render renderRoutes');
+  // console.log('render renderRoutes');
+  // console.log(browserHistory);
 
   return (
-    <Router history={browserHistory}>
-      <div id="sz-container">
-        <Header />
-        <div id="sz-contents">
-          <LeftMenu />
-          {/* <Pages /> */}
-          <div id="sz-pages">
-            <Switch>
-              <Route exact path="/dashboard" component={Dashboard}/>
-              <Route exact path="/guestbook" component={GuestBook}/>
-              <Route exact path="/study" component={TypeScript}/>
-              <Route exact path="/study/typescript" component={TypeScript}/>
-            </Switch>
+    <React.StrictMode>
+      <Router history={browserHistory}>
+        <div id="sz-container">
+          <Header />
+          <div id="sz-contents">
+            <LeftMenu />
+            {/* <Pages /> */}
+            <div id="sz-pages">
+              <Switch>
+                <Route exact path="/dashboard" component={Dashboard}/>
+                <Route exact path="/guestbook" component={GuestBook}/>
+                <Route exact path="/chat" component={Chat}/>
+                <Route exact path="/study/typescript" component={TypeScript}/>
+              </Switch>
+            </div>
           </div>
+          {/* <Footer /> */}
         </div>
-        <Footer />
-      </div>
-    </Router>
+      </Router>
+    </React.StrictMode>
   )
 }

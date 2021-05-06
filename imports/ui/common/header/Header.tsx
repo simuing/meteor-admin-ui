@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
 
@@ -9,8 +10,9 @@ export const Header = () => {
       </div>
 
       <div className="sz-header-center">
-        <a>HOME</a>
-        <a>GuestBook</a>
+        <Link to="/dashboard">HOME</Link>
+        <Link to="/chat">채팅방</Link>
+        <Link to="/guestbook">방명록</Link>
       </div>
 
       <div className="sz-header-right">

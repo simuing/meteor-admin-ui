@@ -34,7 +34,7 @@
     #sz-left-menu-body {
         li {
             color: $color-white;
-            padding: 1rem;
+            // padding: 1rem;
             transition: 0.1s;
 
             &:hover{
@@ -45,6 +45,10 @@
             }
 
             &>a {
+                display: block;
+                min-height: inherit;
+                min-width: inherit;
+                padding: 1rem;
                 color: inherit;
             }
         }

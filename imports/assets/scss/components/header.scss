@@ -15,6 +15,12 @@ header#sz-header {
         transition: 0.3s;
     }
 
+    a {
+       &:hover {
+           cursor: pointer;
+       } 
+    }
+
     .sz-header-left {
         flex: 1;
         text-align: left;

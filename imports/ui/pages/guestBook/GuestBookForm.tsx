@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { check } from 'meteor/check';
+// import { check } from 'meteor/check';
 
 export const GuestBookForm = () => {
   const [name, setName] = useState('');
@@ -16,10 +16,6 @@ export const GuestBookForm = () => {
 
     // way 2
     // GuestBookAPI.insert(name, contents);
-    console.log('validation - ')
-    console.log(check(name, String))
-    console.log(check(contents, String))
-
     Meteor.call('GuestBookInsert', name, contents)
   }
 
