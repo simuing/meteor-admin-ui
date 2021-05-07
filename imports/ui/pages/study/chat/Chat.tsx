@@ -1,9 +1,11 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useTracker } from 'meteor/react-meteor-data';
+import { LogCollection } from '../../../../db/LogCollection';
 import { ChatCollection } from '../../../../db/ChatCollection';
 import { TwitterPicker } from 'react-color';
 import { Meteor } from 'meteor/meteor';
-import { IChat } from '../../../../db/common/IChat';
+import { IChat } from '../../../../db/type/IChat';
+import { ILog } from '../../../../db/type/ILog';
 
 export const Chat = () => {
     const [color, setColor] = useState('');
@@ -15,10 +17,17 @@ export const Chat = () => {
         return ChatCollection.find().fetch();
     });
 
+    const logs: ILog[] = useTracker(() => {
+        return LogCollection.find().fetch();
+    });
+
     useEffect(() => {
         // 정보조회
         const nick = window.localStorage.getItem('nickname');
         const color = window.localStorage.getItem('color');
+
+        console.log(chats)
+        console.log(logs)
 
         nick ? setName(nick) : setName('Guest');
         color ? setColor(color) : setColor("#8ED1FC");
@@ -91,7 +100,12 @@ export const Chat = () => {
 
     const onClickReset = () => {
         if(confirm('일괄 삭제하시겠습니까?')){
-            Meteor.call('initChat')
+            Meteor.call('initChat', name)
+        }
+    }
+    const onClickUserReset = () => {
+        if(confirm(name+'님의 데이터를 모두 삭제하시겠습니까?')){
+            Meteor.call('removeUserChat', name);
         }
     }
 
@@ -111,7 +125,8 @@ export const Chat = () => {
         <div>
             <h1 id="chat-title">채팅방</h1>
 
-            <button id="btn-reset" type="button" onClick={()=>onClickReset()}>일괄삭제</button>
+            <button type="button" className="btn-reset cm-w-50p" onClick={()=>onClickUserReset()}>내것만삭제</button>
+            <button type="button" className="btn-reset cm-w-50p" onClick={()=>onClickReset()}>일괄삭제</button>
 
             <div id="chat-area">
                 <div className="chat-contents">
@@ -144,6 +159,15 @@ export const Chat = () => {
                         onChangeComplete={ onChangeColor }
                     />
                 </form>
+            </div>
+
+            <div id="chat-logs">
+                {logs.map( ffff => {
+                    <>
+                        <span>{ffff._id}</span>
+                        <span>{ffff.log}</span>
+                    </>
+                })}
             </div>
         </div>
     )

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTracker } from 'meteor/react-meteor-data';
 import { GuestBookCollection } from '/imports/db/GuestBookCollection';
-import { GuestBook } from '../../../db/common/IGuestBook';
+import { IGuestBook } from '/imports/db/common/IGuestBook';
 import { Meteor } from 'meteor/meteor';
 
 export const GuestBookInfo = () => {
@@ -9,13 +9,13 @@ export const GuestBookInfo = () => {
     return GuestBookCollection.find().fetch();
   });
 
-  const onClickDelete = (guestBook: GuestBook) => {
+  const onClickDelete = (guestBook: IGuestBook) => {
     if(guestBook._id) {
       Meteor.call('removeGuestBook', guestBook._id);
     }
   }
 
-  const makeGuestBook = (guestBook: GuestBook) => {
+  const makeGuestBook = (guestBook: IGuestBook) => {
     return (
       <li key={guestBook._id}>
         <span>id: {guestBook._id}</span>

@@ -1,3 +1,4 @@
+// import in pages.scss
 #chat-title {
     font-size: 25px;
     margin-bottom: 2rem;
@@ -107,10 +108,12 @@
     }
 }
 
-#btn-reset {
+.btn-reset {
     color: white;
-    width: 100%;
     background-color: #fe2f48;
     min-height: 40px;
-    border: none;
+    border: 1px solid gainsboro;
+    &:hover {
+        background-color: hsl(353, 100%, 51%);
+    }
 }

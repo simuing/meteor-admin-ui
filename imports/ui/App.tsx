@@ -1,19 +1,32 @@
-// import React, { useState } from 'react';
-// import { Header } from './common/header/Header';
-// import { LeftMenu } from './common/leftMenu/LeftMenu';
-// import { Pages } from './pages/Pages';
-// import { Footer } from './common/footer/Footer';
-// import '/imports/assets/scss/styles.scss';
+import React from 'react';
+import { Router } from 'react-router';
+import { createBrowserHistory } from 'history';
+import '../assets/scss/styles.scss';
 
-// export const App = () => {
-//   return (  
-//     <div id="sz-container">
-//       <Header />
-//       <div id="sz-contents">
-//         <LeftMenu />
-//         <Pages />
-//       </div>
-//       <Footer />
-//     </div>
-//   );
-// }
+// route components
+import { Header } from './components/header/Header';
+import { LeftMenu } from './components/leftMenu/LeftMenu';
+import { Footer } from './components/footer/Footer';
+import { Pages } from '../ui/pages/Pages';
+
+const browserHistory = createBrowserHistory();
+
+export const renderRoutes = () => {
+  // console.log('render renderRoutes');
+  // console.log(browserHistory);
+
+  return (
+    <React.StrictMode>
+      <Router history={browserHistory}>
+        <div id="sz-container">
+          <Header />
+          <div id="sz-contents">
+            <LeftMenu />
+            <Pages />
+          </div>
+          <Footer />
+        </div>
+      </Router>
+    </React.StrictMode>
+  )
+}

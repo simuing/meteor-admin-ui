@@ -8,7 +8,7 @@ export const ErrorPage = (num: string) => {
     
     return (
         <>
-            <div id="sz-dashboard">
+            <div id="sz-error">
                 <div>
                     Error {errorNum} ~!
                 </div>

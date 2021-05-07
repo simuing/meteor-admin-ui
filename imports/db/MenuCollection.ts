@@ -1,8 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
-import { defaultMenu, Menu } from './common/IMenu';
+import { defaultMenu, IMenu } from '../type/IMenu';
 
-export const MenuCollection = new Mongo.Collection<Menu>('menu');
+export const MenuCollection = new Mongo.Collection<IMenu>('menu');
 
 Meteor.methods({
     initMenu: function() {
@@ -12,7 +12,7 @@ Meteor.methods({
             MenuCollection.insert({ ...menu });
         });
     },
-    insertMenu: function(menu: Menu) {
+    insertMenu: function(menu: IMenu) {
         console.info('[INFO] Menu data insert', menu);
         MenuCollection.insert({ ...menu });
     },

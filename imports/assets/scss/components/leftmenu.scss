@@ -1,6 +1,6 @@
 #sz-left-menu {
     color: $color-white;
-    min-height: 100vh;
+    // min-height: 100vh;
     min-width: 3rem;
     position: relative;
     display: flex;
@@ -44,6 +44,10 @@
             align-items: center;
             transition: 0.1s;
 
+            &.on {
+                color: blue;
+            }
+
             &>a {
                 color: inherit;
                 display: block;
@@ -67,8 +71,12 @@
             }
         }
 
-        .left-menu-child-2 {
+        .left-menu-child {
             flex: 1;
+            width: 100%;
+            a {
+                background-color: rgba(255,255,255,0.2);
+            }
         }
     }
 

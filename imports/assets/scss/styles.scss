@@ -1,9 +1,9 @@
 /* reset styles (맨 위에 선언해야 합니다.) */
 @import "common/reset";
 @import "common/colors";
-@import "common/common";
 @import "common/buttons";
 @import "common/forms";
+@import "common/common";
 
 /* common styles */
 @import "animations/animations";
@@ -12,8 +12,4 @@
 @import "components/footer";
 @import "components/leftmenu";
 
-/* pages styles */
-@import "pages/dashboard";
 @import "pages/pages";
-@import "pages/guestbook";
-@import "pages/chat";

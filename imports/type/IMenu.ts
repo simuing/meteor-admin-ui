@@ -23,6 +23,9 @@ export interface IMenu {
     children?: Array<IMenu>;
 }
 
+/**
+ * Menu Database
+ */
 export const defaultMenu: Array<IMenu> = [
     {
         menucd: 'DB0000',
@@ -44,6 +47,17 @@ export const defaultMenu: Array<IMenu> = [
         menugb:  'MY',
         menuor:  '1',
         showyn: 'N',
+        createdAt: new Date()
+    },
+    {
+        menucd: 'BD0000',
+        menuup: 'MN0000',
+        menunm:  '자유게시판',
+        url:  '/board',
+        menulv:  '1',
+        menugb:  'BD',
+        menuor:  '1',
+        showyn: 'Y',
         createdAt: new Date()
     },
     {
@@ -70,7 +84,7 @@ export const defaultMenu: Array<IMenu> = [
         children: [
             {
                 menucd: 'ST0001',
-                menuup: 'MNST00',
+                menuup: 'ST0000',
                 menunm:  '타입스크립트',
                 url:  '/study/typescript',
                 menulv:  '2',
@@ -81,7 +95,7 @@ export const defaultMenu: Array<IMenu> = [
                 children: [
                     {
                         menucd: 'ST0011',
-                        menuup: 'MNST00',
+                        menuup: 'ST0000',
                         menunm:  '타입스크립트 입문 - 1',
                         url:  '/study/typescript/1',
                         menulv:  '3',
