@@ -85,6 +85,17 @@ export const defaultMenu: Array<IMenu> = [
             {
                 menucd: 'ST0001',
                 menuup: 'ST0000',
+                menunm:  '리액트',
+                url:  '/study/react',
+                menulv:  '2',
+                menugb:  'ST',
+                menuor:  '1',
+                showyn: 'Y',
+                createdAt: new Date()
+            },
+            {
+                menucd: 'ST0002',
+                menuup: 'ST0000',
                 menunm:  '타입스크립트',
                 url:  '/study/typescript',
                 menulv:  '2',
@@ -94,8 +105,8 @@ export const defaultMenu: Array<IMenu> = [
                 createdAt: new Date(),
                 children: [
                     {
-                        menucd: 'ST0011',
-                        menuup: 'ST0000',
+                        menucd: 'ST0021',
+                        menuup: 'ST0002',
                         menunm:  '타입스크립트 입문 - 1',
                         url:  '/study/typescript/1',
                         menulv:  '3',

@@ -56,19 +56,23 @@
             }
 
             // 자식메뉴
-            .left-menu-child {
+            ul.left-menu-child {
                 flex: 1;
                 width: 100%;
                 display: none;
+                a {
+                    padding-left: 2.5rem;
+                }
             }
-            &.on .left-menu-child {
+            &.on ul.left-menu-child {
                 display: block;
                 background-color: #fe576c;
             }
+
             &.on[data-menulv="2"] > div > a,
             &.on[data-menulv="3"] > div > a {
-                display: block;
                 color: $color-fe2f48;
+                display: block;
                 background-color: $color-white;
             }
 
