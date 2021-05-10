@@ -21,7 +21,12 @@ Meteor.startup(() => {
     console.info('[INFO] chat cnt: ' + ChatCollection.find().count())
     console.info('[INFO] log cnt: ' + LogCollection.find().count())
 
-    // TODO
+    // useTracker test - chat.tsx
+    Meteor.publish('getChats', () => {
+      return ChatCollection.find({});
+    });
+    
+    // withTracker test - chat.tsx
     Meteor.publish('getLogs', () => {
       return LogCollection.find({});
     });
