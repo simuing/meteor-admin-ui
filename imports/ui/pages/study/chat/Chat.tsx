@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { useTracker } from 'meteor/react-meteor-data';
+import { useTracker, withTracker } from 'meteor/react-meteor-data';
 import { LogCollection } from '../../../../db/LogCollection';
 import { ChatCollection } from '../../../../db/ChatCollection';
 import { TwitterPicker } from 'react-color';
@@ -7,19 +7,25 @@ import { Meteor } from 'meteor/meteor';
 import { IChat } from '../../../../db/type/IChat';
 import { ILog } from '../../../../db/type/ILog';
 
-export const Chat = () => {
+export const Chat = ({loading, logs}) => {
     const [color, setColor] = useState('');
     const [name, setName] = useState('');
     const [contents, setContents] = useState('');
     const contentsRef = useRef(null);
 
     const chats: IChat[] = useTracker(() => {
+        const handles = Meteor.subscribe('getChats');
+        const loading = !handles.ready();
+        const list = ChatCollection.find().fetch()
+        console.log('loading', loading)
+        console.log('list', list)
         return ChatCollection.find().fetch();
     });
+    // const chats: IChat[] = list;
 
-    const logs: ILog[] = useTracker(() => {
-        return LogCollection.find().fetch();
-    });
+    // const logs: ILog[] = useTracker(() => {
+    //     return LogCollection.find().fetch();
+    // });
 
     useEffect(() => {
         // 정보조회
@@ -42,6 +48,14 @@ export const Chat = () => {
             window.removeEventListener('scroll', () => {})
         }
     },[])
+
+    // useEffect(() => {
+    //     console.log('useEffect chats:', chats)
+    // }, [chats])
+
+    // useEffect(() => {
+    //     console.log('useEffect logs:', logs)
+    // }, [logs])
 
     /**
      * @function handleScroll 채팅방 스크롤 이벤트
@@ -130,7 +144,7 @@ export const Chat = () => {
 
             <div id="chat-area">
                 <div className="chat-contents">
-                    {chats.map( chat => (
+                    {chats && chats.map( chat => (
                         <div key={chat._id} className="chat-contents-inner">
                             <div>
                                 <div className="chat-remove" onClick={()=>onRemove(chat._id)}>X</div>
@@ -162,13 +176,27 @@ export const Chat = () => {
             </div>
 
             <div id="chat-logs">
-                {logs.map( ffff => {
-                    <>
-                        <span>{ffff._id}</span>
-                        <span>{ffff.log}</span>
-                    </>
+                {logs && logs.map( log => {
+                    return (
+                        <>
+                            <span>{log._id}</span>
+                            <span>{log.log}</span>
+                        </>
+                    )
                 })}
             </div>
         </div>
     )
 }
+
+export default withTracker(() => {
+	const handles = Meteor.subscribe('getLogs');
+	const loading = !handles.ready();
+    const list = LogCollection.find().fetch()
+    console.log('loading', loading)
+    console.log('list', list)
+	return {
+		loading,
+		logs: list,
+	};
+})(Chat);

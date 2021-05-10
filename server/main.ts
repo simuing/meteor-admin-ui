@@ -20,5 +20,11 @@ Meteor.startup(() => {
     console.info('[INFO] menu cnt: ' + MenuCollection.find().count())
     console.info('[INFO] chat cnt: ' + ChatCollection.find().count())
     console.info('[INFO] log cnt: ' + LogCollection.find().count())
+
+    // TODO
+    Meteor.publish('getLogs', () => {
+      return LogCollection.find({});
+    });
   }
+  
 });
