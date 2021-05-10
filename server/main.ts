@@ -21,12 +21,17 @@ Meteor.startup(() => {
     console.info('[INFO] chat cnt: ' + ChatCollection.find().count())
     console.info('[INFO] log cnt: ' + LogCollection.find().count())
 
-    // useTracker test - chat.tsx
+    // - LeftMenu.tsx
+    Meteor.publish('getMenus', () => {
+      return MenuCollection.find({});
+    });
+
+    // useTracker test - Chat.tsx
     Meteor.publish('getChats', () => {
       return ChatCollection.find({});
     });
     
-    // withTracker test - chat.tsx
+    // withTracker test - Chat.tsx
     Meteor.publish('getLogs', () => {
       return LogCollection.find({});
     });

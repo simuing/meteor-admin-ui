@@ -10,10 +10,22 @@ export const LeftMenu = () => {
     const [openMenucd, setOpenMenucd] = useState(null); //열린 메뉴 코드
     const pathName = useLocation().pathname;
 
-    /// 메뉴 순서(menuor)대로 출력
-    const menuList = useTracker(() => {
-        return MenuCollection.find({}, {sort: [['menulv', 'asc'],['menuor', 'asc']]}).fetch();
+    const menus: IMenu[] = useTracker(() => {
+        const handles = Meteor.subscribe('getMenus');
+        const loading = !handles.ready();
+        const list = MenuCollection.find().fetch()
+        const sort = {sort: [['menulv', 'asc'],['menuor', 'asc']]};
+
+        console.log('loading', loading)
+        console.log('menus', list)
+
+        return MenuCollection.find({}, sort).fetch();
     });
+
+    /// 메뉴 순서(menuor)대로 출력
+    // const menuList = useTracker(() => {
+    //     return MenuCollection.find({}, {sort: [['menulv', 'asc'],['menuor', 'asc']]}).fetch();
+    // });
 
     useEffect(() => {
         console.info('[INFO] LeftMenu componentDidMount')
@@ -32,54 +44,57 @@ export const LeftMenu = () => {
         setShowMenu(!showMenu);
     }
 
-    const isActiveMenu = (url: string, menuup: string) => {
-        if(pathName!='/' && url==pathName) {
-            if(menuup!=config.menucd) {
-                console.log('gsdfgsd', menuup)
-                menuOpen(menuup)
-            }
-            return true;
+    /**
+     * @function 메뉴활성화여부 클래스명 반환 함수
+     * @param url 
+     * @param menuup 
+     * @returns 
+     */
+    const isActiveMenu = (menu: IMenu) => {
+        const url = menu.url;
+        const lv = menu.menulv;
+
+        if (pathName!='/' && url==pathName) {
+            return 'on active';
+        } else if (lv==='1' && pathName.includes(url)) {
+            return 'on';
         } else {
-            return false;
+            return '';
         }
     }
 
-    const menuOpen = (menucd: string) => {
-        // setOpenMenucd(menucd);
-
-        //(1) 다른 코드는 모두 닫는다.
-        // menuup.classList.remove("on");
-
-        //(2) menucd의 최상위 코드를 재귀조회하여 모두 오픈하도록 한다.
-        const menu = document.querySelector("#"+menucd);
-        if(menu) {
-            let parent = document.querySelector("#"+menucd).parentElement;
-            parent.classList.add("on");
-    
-            let menuup = parent.getAttribute("data-menuup");
-            if(menuup!=config.menucd) {
-                parent.classList.add("on");
-                menuOpen(menuup);
-            }
-        }
-    }
-
-    const getMenuList = (menu: IMenu) => {
+    const getMenus = (menu: IMenu) => {
         if(menu.showyn=='Y') {
             return (
-                <li key={menu.menucd} data-menucd={menu.menucd} data-menuup={menu.menuup}>
-                    <Link id={menu.menucd} to={menu.url} className={isActiveMenu(menu.url, menu.menuup) ? 'active' : ''}>
-                        {`${showMenu ? menu.menunm : menu.menugb}`}
-                    </Link>
-                    {
-                        menu.children
-                        ? 
-                        <ul className={`left-menu-child`}>
-                            {menu.children.map(getMenuList)}
-                        </ul>
-                        : 
-                        <></>
-                    }
+                <li key={menu.menucd} 
+                    className={isActiveMenu(menu)}
+                    data-menucd={menu.menucd} 
+                    data-menuup={menu.menuup}
+                    data-menulv={menu.menulv}
+                >
+                    <div>
+                        <Link id={menu.menucd} to={menu.url} >
+                            {`${showMenu ? menu.menunm : menu.menugb}`}
+
+                            { menu.menulv==='1' && menu.children 
+                                ? <div className="left-menu-toggle-icon">
+                                    {!isActiveMenu(menu).includes('on') 
+                                        ? <span>open</span>
+                                        : <span>close</span>
+                                    }
+                                </div> 
+                                : <></> 
+                            }
+                        </Link>
+                        {/* TODO -> child menu 뿌려지는 depth정리 */}
+                        { menu.children ? 
+                            <ul className={`left-menu-child`}>
+                                {menu.children.map(getMenus)}
+                            </ul>
+                            : 
+                            <></>
+                        }
+                    </div>
                 </li>
             )
         } else {
@@ -96,7 +111,7 @@ export const LeftMenu = () => {
             </div>
             <div id="sz-left-menu-body">
                 <ul>
-                    {menuList.map((menu)=>getMenuList(menu))}
+                    {menus.map((menu)=>getMenus(menu))}
                 </ul>
             </div>
             <div id="sz-left-menu-footer">

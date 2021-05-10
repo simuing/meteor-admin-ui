@@ -1,18 +1,18 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTracker, withTracker } from 'meteor/react-meteor-data';
-import { LogCollection } from '../../../../db/LogCollection';
-import { ChatCollection } from '../../../../db/ChatCollection';
+import { LogCollection } from '/imports/db/LogCollection';
+import { ChatCollection } from '/imports/db/ChatCollection';
 import { TwitterPicker } from 'react-color';
 import { Meteor } from 'meteor/meteor';
-import { IChat } from '../../../../db/type/IChat';
-import { ILog } from '../../../../db/type/ILog';
+import { IChat } from '/imports/db/type/IChat';
+import { ILog } from '/imports/db/type/ILog';
 
 export const Chat = ({loading, logs}) => {
     const [color, setColor] = useState('');
     const [name, setName] = useState('');
     const [contents, setContents] = useState('');
     const contentsRef = useRef(null);
-
+    
     const chats: IChat[] = useTracker(() => {
         const handles = Meteor.subscribe('getChats');
         const loading = !handles.ready();
