@@ -21,6 +21,14 @@ Meteor.startup(() => {
     console.info('[INFO] chat cnt: ' + ChatCollection.find().count())
     console.info('[INFO] log cnt: ' + LogCollection.find().count())
 
+    // - BoardList.tsx
+    Meteor.publish('getBoards', () => {
+      return BoardCollection.find({});
+    });
+    // - BoardList.tsx
+    Meteor.publish('getGuestBooks', () => {
+      return GuestBookCollection.find({});
+    });
     // - LeftMenu.tsx
     Meteor.publish('getMenus', () => {
       return MenuCollection.find({});

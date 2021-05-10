@@ -5,9 +5,18 @@ import { IGuestBook } from '/imports/db/common/IGuestBook';
 import { Meteor } from 'meteor/meteor';
 
 export const GuestBookInfo = () => {
-  const guestBooks = useTracker(() => {
+  const guestBooks: IGuestBook[] = useTracker(() => {
+    const handles = Meteor.subscribe('getGuestBooks');
+    const loading = !handles.ready();
+    const list = GuestBookCollection.find().fetch()
+    // console.log('loading', loading)
+    // console.log('list', list)
     return GuestBookCollection.find().fetch();
   });
+
+  // const guestBooks = useTracker(() => {
+  //   return GuestBookCollection.find().fetch();
+  // });
 
   const onClickDelete = (guestBook: IGuestBook) => {
     if(guestBook._id) {

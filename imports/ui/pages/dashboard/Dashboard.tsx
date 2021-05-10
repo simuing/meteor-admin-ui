@@ -13,8 +13,9 @@ export const Dashboard = () => {
         <>
             <div id="sz-dashboard">
                 <Link to="/chat" className="dashboard-card">채팅하러 가기~!</Link>
-                <Link to="/study/typescript" className="dashboard-card">타입스크립트 공부하러 가기~!</Link>
+                <Link to="/board" className="dashboard-card">자유게시판 바로가기</Link>
                 <Link to="/guestbook" className="dashboard-card">방명록 쓰기~!</Link>
+                <Link to="/study/typescript" className="dashboard-card">타입스크립트 Study</Link>
             </div>
         </>
     )
