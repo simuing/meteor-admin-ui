@@ -1,4 +1,4 @@
-#sz-left-menu {
+#ma-left-menu {
     color: $color-white;
     // min-height: 100vh;
     min-width: 3rem;
@@ -18,10 +18,10 @@
         transition: 0.3s;
     }
 
-    #sz-left-menu-head {
+    #ma-left-menu-head {
         height: 3rem;
         
-        #sz-left-menu-btn {
+        #ma-left-menu-btn {
             color: $color-white;
             // width: 3rem;
             width: 100%;
@@ -34,7 +34,7 @@
         }
     }
 
-    #sz-left-menu-body {
+    #ma-left-menu-body {
         li {
             color: #FFFFFF;
             transition: 0.2s;
@@ -100,7 +100,7 @@
         }
     }
 
-    #sz-left-menu-footer {
+    #ma-left-menu-footer {
 
     }
 }

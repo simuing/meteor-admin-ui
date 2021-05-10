@@ -1,22 +1,23 @@
 import { Meteor } from 'meteor/meteor';
 import React, { useState } from 'react';
 // import { check } from 'meteor/check';
+import { IUser } from '/imports/type/IUser';
 
-export const BoardForm = () => {
-  const [name, setName] = useState('');
-  const [title, setTitle] = useState('');
-  const [contents, setContents] = useState('');
+export const LoginForm = () => {
+  const [id, setId] = useState('');
+  const [pw, setPw] = useState('');
+  const [nickname, setNickname] = useState('');
 
   const onSubmit = (e) => {
     e.preventDefault();
-    Meteor.call('insertBoard', name, contents)
+    const user: IUser = {id, pw, nickname}
+    Meteor.call('insertUser', user)
   }
 
   const onInputChange = (type: string, value: string) => {
     switch (type) {
-      case 'name': setName(value); break;
-      case 'title': setTitle(value); break;
-      case 'contents': setContents(value); break;
+      case 'id': setId(value); break;
+      case 'pw': setPw(value); break;
       default: break;
     }
   }

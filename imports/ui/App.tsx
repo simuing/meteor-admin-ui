@@ -18,9 +18,9 @@ export const renderRoutes = () => {
   return (
     <React.StrictMode>
       <Router history={browserHistory}>
-        <div id="sz-container">
+        <div id="ma-container">
           <Header />
-          <div id="sz-contents">
+          <div id="ma-contents">
             <LeftMenu />
             <Pages />
           </div>

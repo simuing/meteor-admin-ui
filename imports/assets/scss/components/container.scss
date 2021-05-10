@@ -1,11 +1,11 @@
-#sz-container {
+#ma-container {
     display: flex;
     flex-direction: column;
     height: 100vh;
     margin: auto;
 }
 
-#sz-contents {
+#ma-contents {
     display: flex;
     max-height: calc(100vh - 4rem);
     // overflow: hidden;

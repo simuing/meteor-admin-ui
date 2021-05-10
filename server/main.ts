@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { UserCollection } from '/imports/db/UserCollection';
 import { LogCollection } from '/imports/db/LogCollection';
 import { ChatCollection } from '/imports/db/ChatCollection';
 import { BoardCollection } from '/imports/db/BoardCollection';
@@ -15,12 +16,17 @@ Meteor.startup(() => {
   } 
   if(Meteor.isServer) {
     // Meteor.call('initMenu');
+    console.info('[INFO] user cnt: ' + UserCollection.find().count())
     console.info('[INFO] board cnt: ' + BoardCollection.find().count())
     console.info('[INFO] guest cnt: ' + GuestBookCollection.find().count())
     console.info('[INFO] menu cnt: ' + MenuCollection.find().count())
     console.info('[INFO] chat cnt: ' + ChatCollection.find().count())
     console.info('[INFO] log cnt: ' + LogCollection.find().count())
 
+    // - MyPage.tsx
+    Meteor.publish('getUser', (id: string, pw: string) => {
+      return UserCollection.find({id: id, pw: pw});
+    });
     // - BoardList.tsx
     Meteor.publish('getBoards', () => {
       return BoardCollection.find({});
@@ -33,12 +39,10 @@ Meteor.startup(() => {
     Meteor.publish('getMenus', () => {
       return MenuCollection.find({});
     });
-
     // useTracker test - Chat.tsx
     Meteor.publish('getChats', () => {
       return ChatCollection.find({});
     });
-    
     // withTracker test - Chat.tsx
     Meteor.publish('getLogs', () => {
       return LogCollection.find({});

@@ -28,14 +28,15 @@ export const BoardList = () => {
     return (
       <li key={board._id}>
         <span>id: {board._id}</span>
-        <div className="sz-board-head cm-d-block cm-text-right">
+        <div className="ma-board-head cm-d-block cm-text-right">
           <button className="btn-remove" type="button" onClick={()=>onClickDelete(board)} >X</button>
         </div>
-        <div className="sz-board-body">
+        <div className="ma-board-body">
           <p>작성자: {board.name ? board.name : ''}</p>
+          <p>제목: {board.title ? board.title : ''}</p>
           <p>내용: {board.contents ? board.contents : ''}</p>
         </div>
-        <div className="sz-board-footer cm-d-block cm-text-right">
+        <div className="ma-board-footer cm-d-block cm-text-right">
           <button className="btn-move" type="button">=</button>
         </div>
       </li>
@@ -43,7 +44,7 @@ export const BoardList = () => {
   }
 
   return (
-    <div id="sz-board-list">
+    <div id="ma-board-list">
       <ul>{boards.map(makeBoardList)}</ul>
     </div>
   );

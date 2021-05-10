@@ -103,18 +103,18 @@ export const LeftMenu = () => {
     }
 
     return (
-        <div key="leftmenu" id="sz-left-menu" className={`${showMenu ? "large" : "small"}`}>
-            <div id="sz-left-menu-head">
-                <button id="sz-left-menu-btn" onClick={onClickShowMenu}>
+        <div key="leftmenu" id="ma-left-menu" className={`${showMenu ? "large" : "small"}`}>
+            <div id="ma-left-menu-head">
+                <button id="ma-left-menu-btn" onClick={onClickShowMenu}>
                     {`${showMenu ? "<" : ">"}`}
                 </button>
             </div>
-            <div id="sz-left-menu-body">
+            <div id="ma-left-menu-body">
                 <ul>
                     {menus.map((menu)=>getMenus(menu))}
                 </ul>
             </div>
-            <div id="sz-left-menu-footer">
+            <div id="ma-left-menu-footer">
             </div>
         </div>
     );

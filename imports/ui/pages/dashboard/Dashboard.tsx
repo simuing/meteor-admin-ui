@@ -11,7 +11,7 @@ export const Dashboard = () => {
     
     return (
         <>
-            <div id="sz-dashboard">
+            <div id="ma-dashboard">
                 <Link to="/chat" className="dashboard-card">채팅하러 가기~!</Link>
                 <Link to="/board" className="dashboard-card">자유게시판 바로가기</Link>
                 <Link to="/guestbook" className="dashboard-card">방명록 쓰기~!</Link>
