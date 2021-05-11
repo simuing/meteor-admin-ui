@@ -16,8 +16,8 @@ export const LeftMenu = () => {
         const list = MenuCollection.find().fetch()
         const sort = {sort: [['menulv', 'asc'],['menuor', 'asc']]};
 
-        console.log('loading', loading)
-        console.log('menus', list)
+        // console.log('loading', loading)
+        // console.log('menus', list)
 
         return MenuCollection.find({}, sort).fetch();
     });
@@ -29,7 +29,7 @@ export const LeftMenu = () => {
 
     useEffect(() => {
         console.info('[INFO] LeftMenu componentDidMount')
-        
+
         return () => {
             setShowMenu(true);
         }
@@ -46,9 +46,9 @@ export const LeftMenu = () => {
 
     /**
      * @function 메뉴활성화여부 클래스명 반환 함수
-     * @param url 
-     * @param menuup 
-     * @returns 
+     * @param url
+     * @param menuup
+     * @returns
      */
     const isActiveMenu = (menu: IMenu) => {
         const url = menu.url;
@@ -66,9 +66,9 @@ export const LeftMenu = () => {
     const getMenus = (menu: IMenu) => {
         if(menu.showyn=='Y') {
             return (
-                <li key={menu.menucd} 
+                <li key={menu.menucd}
                     className={isActiveMenu(menu)}
-                    data-menucd={menu.menucd} 
+                    data-menucd={menu.menucd}
                     data-menuup={menu.menuup}
                     data-menulv={menu.menulv}
                 >
@@ -76,22 +76,22 @@ export const LeftMenu = () => {
                         <Link id={menu.menucd} to={menu.url} >
                             {`${showMenu ? menu.menunm : menu.menugb}`}
 
-                            { menu.menulv==='1' && menu.children 
+                            { menu.menulv==='1' && menu.children
                                 ? <div className="left-menu-toggle-icon">
-                                    {!isActiveMenu(menu).includes('on') 
+                                    {!isActiveMenu(menu).includes('on')
                                         ? <span>open</span>
                                         : <span>close</span>
                                     }
-                                </div> 
-                                : <></> 
+                                </div>
+                                : <></>
                             }
                         </Link>
                         {/* TODO -> child menu 뿌려지는 depth정리 */}
-                        { menu.children ? 
+                        { menu.children ?
                             <ul className={`left-menu-child`}>
                                 {menu.children.map(getMenus)}
                             </ul>
-                            : 
+                            :
                             <></>
                         }
                     </div>

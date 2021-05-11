@@ -106,6 +106,14 @@
         background-color: black;
         border: none;
     }
+    .chat-image-canvas {
+        border: 1px solid grey;
+    }
+    #base64-test {
+        width: 200px;
+        height: 200px;
+        border: 2px solid red;
+    }
 }
 
 .btn-reset {
@@ -121,3 +129,4 @@
 #chat-logs {
     background-color: gainsboro;
 }
+

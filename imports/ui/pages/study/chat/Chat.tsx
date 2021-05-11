@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
+import React, {createRef, useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {useTracker, withTracker} from 'meteor/react-meteor-data';
 import {LogCollection} from '/imports/db/LogCollection';
 import {ChatCollection} from '/imports/db/ChatCollection';
@@ -13,15 +13,17 @@ export const Chat = ({loading, logs}) => {
   const [name, setName] = useState('');
   const [contents, setContents] = useState('');
   const contentsRef = useRef(null);
+  const contentsCanvas = useRef(null);
+  const [base64Img, setBase64Img] = useState('');
 
   const chats: IChat[] = useTracker(() => {
     const handles = Meteor.subscribe('getChats');
     const loading = !handles.ready();
     const list = ChatCollection.find().fetch()
-    console.log('loading', loading)
-    console.log('list', list)
-    return ChatCollection.find().fetch();
+
+    return list;
   });
+
   // const chats: IChat[] = list;
 
   // const logs: ILog[] = useTracker(() => {
@@ -32,9 +34,6 @@ export const Chat = ({loading, logs}) => {
     // 정보조회
     const nick = window.localStorage.getItem('nickname');
     const color = window.localStorage.getItem('color');
-
-    console.log(chats)
-    console.log(logs)
 
     nick ? setName(nick) : setName('Guest');
     color ? setColor(color) : setColor("#8ED1FC");
@@ -137,20 +136,89 @@ export const Chat = ({loading, logs}) => {
     setColor(color.hex)
   }
 
-  // const imageLists = [
-  //   "https://item.kakaocdn.net/do/4b5e3caaa5e3bedb9abe7b1b5ae3a4788f324a0b9c48f77dbce3a43bd11ce785",
-  //   "https://item.kakaocdn.net/do/4b5e3caaa5e3bedb9abe7b1b5ae3a4789f17e489affba0627eb1eb39695f93dd",
-  //   "https://item.kakaocdn.net/do/4b5e3caaa5e3bedb9abe7b1b5ae3a478113e2bd2b7407c8202a97d2241a96625",
-  //   "https://item.kakaocdn.net/do/4b5e3caaa5e3bedb9abe7b1b5ae3a478ce9463e040a07a9462a54df43e1d73f1",
-  //   "https://item.kakaocdn.net/do/4b5e3caaa5e3bedb9abe7b1b5ae3a47866d8fd08427c1f00d04db607cc4cdc8e",
-  // ];
-
   const isImageURL = (value: string) => {
-    const regex = new RegExp("^(http[s]?:\\/\\/(www\\.)?|ftp:\\/\\/(www\\.)?|www\\.){1}([0-9A-Za-z-\\.@:%_\+~#=]+)+((\\.[a-zA-Z]{2,3})+)(/(.)*)?(\\?(.)*)?");
-    if (!regex.test(value)) return;
 
-    return regex.test(value);
+    const testSTR = value.substring(0, 30);
+
+    const regexHttp = new RegExp("^(http[s]?:\\/\\/(www\\.)?|ftp:\\/\\/(www\\.)?|www\\.){1}([0-9A-Za-z-\\.@:%_\+~#=]+)+((\\.[a-zA-Z]{2,3})+)(/(.)*)?(\\?(.)*)?");
+    const regexBase64 = new RegExp("data:image\\/[a-z]*;[a-z0-9]*,.*", "gi");
+
+    // if (!regexHttp.test(value) && !regexBase64.test(value)) return;
+    if (!(regexHttp.test(value) || regexBase64.test(value))) return;
+
+    return true;
+
+    // const tester = new Image();
+    //
+    // const testPromise = onLoadImagePromise(tester).then(res => {
+    //   return res;
+    // }).catch(err => {
+    //   return err;
+    // });
+    // tester.src = value;
+    //
+    // const result = await testPromise;
+    // console.log('img? result?', testSTR, result);
+    //
+    //
+    // if (!result) return false;
+    //
+    // return result;
   }
+
+  // const onLoadImagePromise = (obj) => {
+  //   return new Promise((resolve, reject) => {
+  //     obj.onload = () => resolve(true);
+  //     obj.onerror = function() {
+  //       reject(false);
+  //     }
+  //   });
+  // }
+
+
+  const onContentsPaste = (event) => {
+
+    const items = event.clipboardData.items;
+    let blob;
+
+    for (let item of items) {
+      // console.log('item', item);
+      if (item.type.indexOf("image") === -1) {
+        console.log('not image');
+        continue;
+      }
+      // console.log('this is image', item);
+      blob = item.getAsFile();
+      // cb
+    }
+
+    const canvas = contentsCanvas.current;
+    const ctx = canvas.getContext('2d');
+
+    const img = new Image();
+    img.onload = function () {
+      canvas.width = '250';
+      canvas.height = '250';
+
+      ctx.drawImage(img, 0, 0);
+    }
+
+    const URLObj = window.URL || window.webkitURL;
+
+    img.src = URLObj.createObjectURL(blob);
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      console.log('onload e', e);
+      // cb
+      console.log(reader.result);
+      setBase64Img(reader.result.toString());
+    }
+    reader.readAsDataURL(blob);
+
+
+  }
+
 
   return (
     <div>
@@ -169,7 +237,7 @@ export const Chat = ({loading, logs}) => {
                 <div>
                   <div className="chat-nickname" style={{backgroundColor: chat.color}}>{chat.name}</div>
                   {isImageURL(chat.contents) ?
-                    <img className="chat-image" src={chat.contents} alt={"img"}/> :
+                    <img className="chat-image" src={chat.contents} alt="img" width="150"/> :
                     <div className="chat-contents">{checkHyperLink(chat.contents)}</div>
                   }
                 </div>
@@ -186,7 +254,16 @@ export const Chat = ({loading, logs}) => {
           <input name="name" value={name} type="text" placeholder="닉네임"
                  onChange={e => onNameChange(e.target.value)}></input>
           <input ref={contentsRef} name="contents" type="text" value={contents} placeholder="채팅 내용을 작성해주세요."
-                 onChange={e => onContentsChange(e.target.value)}></input>
+                 onChange={e => onContentsChange(e.target.value)}
+                 onPaste={e => onContentsPaste(e)}
+          ></input>
+          <div id="canvas-image-input">
+            <canvas ref={contentsCanvas} className="chat-image-canvas"></canvas>
+            <button>보내기</button>
+            <div id="base64-test">
+              <img src={base64Img}/>
+            </div>
+          </div>
           <button className="btn-submit" type="submit">입력</button>
           <TwitterPicker
             color={color}
@@ -213,8 +290,8 @@ export default withTracker(() => {
   const handles = Meteor.subscribe('getLogs');
   const loading = !handles.ready();
   const list = LogCollection.find().fetch()
-  console.log('loading', loading)
-  console.log('list', list)
+  // console.log('loading', loading)
+  // console.log('list', list)
   return {
     loading,
     logs: list,
