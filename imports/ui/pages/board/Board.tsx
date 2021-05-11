@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { BoardForm } from "./BoardForm";
 import { BoardList } from "./BoardList";
 
 export const Board = () => {
@@ -20,8 +19,7 @@ export const Board = () => {
             case 'name': setName(val);break;
             default:
                 break;
-        }
-        ;
+        };
     }
 
     return (

@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { RiExternalLinkLine } from "react-icons/ri";
 
-import { UserCollection } from '/imports/db/UserCollection';
-import { LogCollection } from '/imports/db/LogCollection';
-import { ChatCollection } from '/imports/db/ChatCollection';
-import { BoardCollection } from '/imports/db/BoardCollection';
-import { GuestBookCollection } from '/imports/db/GuestBookCollection';
-import { MenuCollection } from '/imports/db/MenuCollection';
-import { useTracker } from 'meteor/react-meteor-data';
+// import { UserCollection } from '/imports/db/UserCollection';
+// import { LogCollection } from '/imports/db/LogCollection';
+// import { ChatCollection } from '/imports/db/ChatCollection';
+// import { BoardCollection } from '/imports/db/BoardCollection';
+// import { GuestBookCollection } from '/imports/db/GuestBookCollection';
+// import { MenuCollection } from '/imports/db/MenuCollection';
+// import { useTracker } from 'meteor/react-meteor-data';
 
 export const Dashboard = () => {
     const [nickName, setNickName] = useState(localStorage.getItem('nickname'));

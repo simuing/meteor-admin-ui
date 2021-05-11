@@ -18,24 +18,24 @@ Meteor.startup(() => {
   }
 
   if(Meteor.isServer) {
-    console.info('[INFO] user cnt: ' + UserCollection.find().count())
-    console.info('[INFO] board cnt: ' + BoardCollection.find().count())
-    console.info('[INFO] guest cnt: ' + GuestBookCollection.find().count())
-    console.info('[INFO] menu cnt: ' + MenuCollection.find().count())
-    console.info('[INFO] chat cnt: ' + ChatCollection.find().count())
-    console.info('[INFO] log cnt: ' + LogCollection.find().count())
+    // console.info('[INFO] user cnt: ' + UserCollection.find().count())
+    // console.info('[INFO] board cnt: ' + BoardCollection.find().count())
+    // console.info('[INFO] guest cnt: ' + GuestBookCollection.find().count())
+    // console.info('[INFO] menu cnt: ' + MenuCollection.find().count())
+    // console.info('[INFO] chat cnt: ' + ChatCollection.find().count())
+    // console.info('[INFO] log cnt: ' + LogCollection.find().count())
 
-    Meteor.publish('getDashboardData', () => {
-      const cntData = {
-        userCnt: UserCollection.find().count(),
-        boardCnt: BoardCollection.find().count(),
-        guestbookCnt: GuestBookCollection.find().count(),
-        menuCnt: MenuCollection.find().count(),
-        chatCnt: ChatCollection.find().count(),
-        logCnt: LogCollection.find().count(),
-      }
-      return cntData;
-    })
+    // Meteor.publish('getDashboardData', () => {
+    //   const cntData = {
+    //     userCnt: UserCollection.find().count(),
+    //     boardCnt: BoardCollection.find().count(),
+    //     guestbookCnt: GuestBookCollection.find().count(),
+    //     menuCnt: MenuCollection.find().count(),
+    //     chatCnt: ChatCollection.find().count(),
+    //     logCnt: LogCollection.find().count(),
+    //   }
+    //   return cntData;
+    // })
 
     // - MyPage.tsx
     Meteor.publish('getUser', (id: string, pw: string) => {
