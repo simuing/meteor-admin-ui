@@ -45,19 +45,8 @@ export const defaultMenu: Array<IMenu> = [
         url:  '/mypage',
         menulv:  '1',
         menugb:  'MY',
-        menuor:  '1',
+        menuor:  '999',
         showyn: 'N',
-        createdAt: new Date()
-    },
-    {
-        menucd: 'BD0000',
-        menuup: 'MN0000',
-        menunm:  '자유게시판',
-        url:  '/board',
-        menulv:  '1',
-        menugb:  'BD',
-        menuor:  '1',
-        showyn: 'Y',
         createdAt: new Date()
     },
     {
@@ -85,17 +74,6 @@ export const defaultMenu: Array<IMenu> = [
             {
                 menucd: 'ST0001',
                 menuup: 'ST0000',
-                menunm:  '리액트',
-                url:  '/study/react',
-                menulv:  '2',
-                menugb:  'ST',
-                menuor:  '1',
-                showyn: 'Y',
-                createdAt: new Date()
-            },
-            {
-                menucd: 'ST0002',
-                menuup: 'ST0000',
                 menunm:  '타입스크립트',
                 url:  '/study/typescript',
                 menulv:  '2',
@@ -105,19 +83,41 @@ export const defaultMenu: Array<IMenu> = [
                 createdAt: new Date(),
                 children: [
                     {
-                        menucd: 'ST0021',
+                        menucd: 'ST0011',
                         menuup: 'ST0002',
-                        menunm:  '타입스크립트 입문 - 1',
+                        menunm:  '타입스크립트 입문',
                         url:  '/study/typescript/1',
+                        menulv:  '3',
+                        menugb:  'ST',
+                        menuor:  '1',
+                        showyn: 'Y',
+                        createdAt: new Date()
+                    },
+                    {
+                        menucd: 'ST0012',
+                        menuup: 'ST0001',
+                        menunm:  '타입스크립트 초급',
+                        url:  '/study/typescript/2',
                         menulv:  '3',
                         menugb:  'ST',
                         menuor:  '2',
                         showyn: 'Y',
                         createdAt: new Date()
-                    }
+                    },
                 ]
             }
         ]
+    },
+    {
+        menucd: 'BD0000',
+        menuup: 'MN0000',
+        menunm:  '공지사항',
+        url:  '/board',
+        menulv:  '1',
+        menugb:  'BD',
+        menuor:  '4',
+        showyn: 'Y',
+        createdAt: new Date()
     },
     {
         menucd: 'GB0000',

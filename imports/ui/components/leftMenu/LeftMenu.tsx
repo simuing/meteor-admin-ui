@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { FiMenu, FiX } from "react-icons/fi";
+import { TiThMenu, TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
 import { useTracker } from 'meteor/react-meteor-data';
 import { Link, useLocation } from 'react-router-dom';
 import { MenuCollection } from '/imports/db/MenuCollection';
@@ -16,8 +18,8 @@ export const LeftMenu = () => {
         const list = MenuCollection.find().fetch()
         const sort = {sort: [['menulv', 'asc'],['menuor', 'asc']]};
 
-        console.log('loading', loading)
-        console.log('menus', list)
+        // console.log('loading', loading)
+        // console.log('menus', list)
 
         return MenuCollection.find({}, sort).fetch();
     });
@@ -79,8 +81,8 @@ export const LeftMenu = () => {
                             { menu.menulv==='1' && menu.children 
                                 ? <div className="left-menu-toggle-icon">
                                     {!isActiveMenu(menu).includes('on') 
-                                        ? <span>open</span>
-                                        : <span>close</span>
+                                        ? <TiArrowSortedUp />
+                                        : <TiArrowSortedDown />
                                     }
                                 </div> 
                                 : <></> 
@@ -106,7 +108,7 @@ export const LeftMenu = () => {
         <div key="leftmenu" id="ma-left-menu" className={`${showMenu ? "large" : "small"}`}>
             <div id="ma-left-menu-head">
                 <button id="ma-left-menu-btn" onClick={onClickShowMenu}>
-                    {`${showMenu ? "<" : ">"}`}
+                    {showMenu ? <TiThMenu /> : <TiThMenu />}
                 </button>
             </div>
             <div id="ma-left-menu-body">

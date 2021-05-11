@@ -1,0 +1,40 @@
+#ma-error {
+    text-align: center;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .error-code {
+        p {
+            color: orange;
+            font-size: 6rem;
+            font-weight: bold;
+            display: inline-block;
+        }
+        span {
+            color: gray;
+            font-size: 2rem;
+        }
+    }
+
+    .error-description {
+        color: gray;
+        font-size: 1rem;
+        margin-top: 1rem;
+    }
+    
+    .error-btn {
+        display: flex;
+        min-height: 1.5rem;
+        margin-top: 1rem;
+        padding: 0.9rem 6.5rem;
+        background-color: orange;
+        border: none;
+        border-radius: 3px;
+        a {
+            color: white;
+        }
+    }
+}

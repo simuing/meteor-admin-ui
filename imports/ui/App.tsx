@@ -2,6 +2,7 @@ import React from 'react';
 import { Router } from 'react-router';
 import { createBrowserHistory } from 'history';
 import '../assets/scss/styles.scss';
+import '/imports/methods/GlobalMeteorMethods.ts'
 
 // route components
 import { Header } from './components/header/Header';
@@ -18,13 +19,13 @@ export const renderRoutes = () => {
   return (
     <React.StrictMode>
       <Router history={browserHistory}>
-        <div id="ma-container">
-          <Header />
-          <div id="ma-contents">
-            <LeftMenu />
+        <div id="ma-container-outer">
+          <LeftMenu />
+          <div id="ma-container-inner">
+            <Header />
             <Pages />
+            {/* <Footer /> */}
           </div>
-          <Footer />
         </div>
       </Router>
     </React.StrictMode>

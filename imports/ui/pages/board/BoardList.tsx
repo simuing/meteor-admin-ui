@@ -5,10 +5,6 @@ import { IBoard } from '/imports/db/common/IBoard';
 import { Meteor } from 'meteor/meteor';
 
 export const BoardList = () => {
-  // const boards = useTracker(() => {
-  //   return BoardCollection.find().fetch();
-  // });
-
   const boards: IBoard[] = useTracker(() => {
     const handles = Meteor.subscribe('getBoards');
     const loading = !handles.ready();

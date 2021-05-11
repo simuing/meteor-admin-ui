@@ -24,7 +24,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+	// line-height: 1;
 }
 ol, ul {
 	list-style: none;
@@ -49,7 +49,7 @@ table {
 
 //add2
 html * {max-height: 999999px} /* font size bug fix */
-body { min-height:101%; }
+// body { min-height:101%; }
 
 ul,ol,li,dl,dd,dt,input,h1,h2,h3,h4,h5,h6,p,b,input,button,textarea,fieldset,legend,td,th{margin:0px;padding:0px;font-weight:normal}
 li{list-style:none}

@@ -1,0 +1,12 @@
+
+#ma-container-outer {
+    display: flex;
+    flex-direction: row;
+    width: inherit;
+    overflow-y: auto;
+}
+#ma-container-inner {
+    display: flex;
+    flex-direction: column;
+    width: -webkit-fill-available;
+}
