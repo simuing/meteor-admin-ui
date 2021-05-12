@@ -7,6 +7,11 @@
     background-color: white;
     border: 1px solid gainsboro;
     border-radius: 3px;
+
+    &:hover,
+    &:active {
+        background-color: gainsboro;
+    }
 }
 
 .btn-move {
@@ -16,7 +21,8 @@
     background-color: rgba(0,0,0,0);
     border: none;
 
-    :hover {
+    &:hover,
+    &:active {
         background-color: gainsboro;
     }
 }

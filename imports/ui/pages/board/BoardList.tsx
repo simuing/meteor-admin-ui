@@ -19,14 +19,17 @@ export const BoardList = () => {
   const boards: IBoard[] = boardsTracker();
 
   useEffect(() => {
-    console.log('[INFO] BoardList.tsx componentDidMount')
+    console.log('[INFO] BoardList.tsx componentDidMount');
+    return () =>{
+      console.log('[INFO] BoardList.tsx componentWillUnMount')
+    }
   }, [])
 
   useEffect(() => {
-    console.log('useEffect: ', boards);
-    return (() =>{
-      console.log('clean')
-    })
+    console.log('useEffect boards: ', boards);
+    return () =>{
+      console.log('boards clean')
+    }
   }, [boards])
 
   const onClickDelete = (guestBook: IBoard) => {

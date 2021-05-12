@@ -20,8 +20,13 @@
         width: 100%;
 
         .page-search-btn {
+            display: flex;
+            flex-direction: row-reverse;
+            float: right;
+            margin-top: -35px;
+
             button {
-                float: right;
+                min-width: 100px;
             }
         }
         
@@ -49,12 +54,18 @@
     // 페이지 목록 조회 영역
     .page-list {
         width: 100%;
-        padding: 1.5rem;
+        padding: 1rem;
         border: 1px solid gainsboro;
-        .page-list-btn {
-            button {
-                float: right;
-            }
+    }
+
+    .page-list-btn {
+        display: flex;
+        flex-direction: row-reverse;
+        float: right;
+        margin-top: -35px;
+        
+        button {
+            min-width: 100px;
         }
     }
     

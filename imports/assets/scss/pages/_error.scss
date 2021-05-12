@@ -27,14 +27,14 @@
     
     .error-btn {
         display: flex;
-        min-height: 1.5rem;
-        margin-top: 1rem;
-        padding: 0.9rem 6.5rem;
-        background-color: orange;
-        border: none;
-        border-radius: 3px;
         a {
             color: white;
+            min-height: 1.5rem;
+            margin-top: 1rem;
+            padding: 0.9rem 6.5rem;
+            background-color: orange;
+            border: none;
+            border-radius: 3px;
         }
     }
 }

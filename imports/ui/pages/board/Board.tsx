@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { BoardList } from "./BoardList";
 
 export const Board = () => {
@@ -30,8 +31,8 @@ export const Board = () => {
             <div className="page-search">
                 <form onSubmit={(e)=>onSubmitSerch(e)}>
                     <div className="page-search-btn">
-                        <button type="button" className="btn-insert">초기화</button>
-                        <button type="submit" className="btn-insert">조회</button>
+                        <button type="submit" className="btn-default">조회</button>
+                        <button type="button" className="btn-default">초기화</button>
                     </div>
                     <div className="page-search-form">
                         <div className="search-form-input">
@@ -51,10 +52,10 @@ export const Board = () => {
             </div>
 
             <h3 className="page-subtitle">공지사항 목록</h3>
+            <div className="page-list-btn">
+                <Link to="/board/insert" className="btn-default">등록</Link>
+            </div>
             <div className="page-list">
-                <div className="page-list-btn">
-                    <button type="button" className="btn-insert">등록</button>
-                </div>
                 <BoardList></BoardList>
             </div>
         </div>
