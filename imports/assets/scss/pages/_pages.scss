@@ -76,6 +76,11 @@
     @import 'dashboard', 'guestbook', 'chat', 'mypage', 'error';
 
 
-    
+    .page-content {
+        p {
+            display: block;
+            margin-bottom: 1rem;
+        }
+    }
 }
 
