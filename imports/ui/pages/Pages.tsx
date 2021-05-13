@@ -15,6 +15,7 @@ export const Pages = () => {
     return (
         <div id="ma-pages">
             <Switch>
+                <Route exact path="/" component={Dashboard}/>
                 <Route exact path="/dashboard" component={Dashboard}/>
                 <Route exact path="/guestbook" component={GuestBook}/>
                 <Route exact path="/board" component={Board}/>
