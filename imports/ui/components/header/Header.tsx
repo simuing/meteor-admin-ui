@@ -6,8 +6,7 @@ export const Header = () => {
   return (
     <header id="ma-header">
       <div className="ma-header-left">
-        <Link to="/dashboard">
-        </Link>
+        <p></p>
       </div>
 
       <div className="ma-header-center">

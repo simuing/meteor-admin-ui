@@ -22,6 +22,7 @@ export const Pages = () => {
                 <Route exact path="/board/insert" component={BoardForm}/>
                 <Route exact path="/chat" component={Chat}/>
                 <Route exact path="/mypage" component={MyPage}/>
+                <Route exact path="/study" component={TypeScript}/>
                 <Route exact path="/study/typescript" component={TypeScript}/>
                 <Route path="" component={()=>ErrorPage("404")}/>
             </Switch>
