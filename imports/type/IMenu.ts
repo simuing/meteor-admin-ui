@@ -109,6 +109,52 @@ export const defaultMenu: Array<IMenu> = [
         ]
     },
     {
+        menucd: 'MNAP00',
+        menuup: 'MN0000',
+        menunm:  '결재',
+        url:  '/approval',
+        menulv:  '1',
+        menugb:  'AP',
+        menuor:  '4',
+        showyn: 'Y',
+        createdAt: new Date(),
+        children: [
+            {
+                menucd: 'MNAP01',
+                menuup: 'MNAP00',
+                menunm:  '결재신청',
+                url:  '/approval/apply/insert',
+                menulv:  '2',
+                menugb:  'AP',
+                menuor:  '1',
+                showyn: 'Y',
+                createdAt: new Date()
+            },
+            {
+                menucd: 'MNAP02',
+                menuup: 'MNAP00',
+                menunm:  '결재신청함',
+                url:  '/approval/apply/list',
+                menulv:  '2',
+                menugb:  'AP',
+                menuor:  '2',
+                showyn: 'Y',
+                createdAt: new Date()
+            },
+            {
+                menucd: 'MNAP03',
+                menuup: 'MNAP00',
+                menunm:  '결재승인함',
+                url:  '/approval/list',
+                menulv:  '2',
+                menugb:  'AP',
+                menuor:  '2',
+                showyn: 'Y',
+                createdAt: new Date()
+            },
+        ]
+    },
+    {
         menucd: 'BD0000',
         menuup: 'MN0000',
         menunm:  '공지사항',

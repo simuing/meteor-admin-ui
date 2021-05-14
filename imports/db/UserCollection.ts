@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
-import { IUser } from './common/IUser';
+import { IUser } from '../type/IUser';
 
 export const UserCollection = new Mongo.Collection<IUser>('users');
 
@@ -10,7 +10,7 @@ Meteor.methods({
         UserCollection.remove({});
     },
     insertUser: function (user: IUser) {
-        user.createAt = new Date();
+        user.createDate = new Date();
         UserCollection.insert(user);
     },
     removeUser: function (id: string) {

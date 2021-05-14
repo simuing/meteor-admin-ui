@@ -3,7 +3,8 @@ export interface IUser {
     id: string;
     pw?: string;
     nickname: string;
-    createdAt: string;
+    createDate: Date;
+    updateDate: Date;
 
     // TODO ADD Auth
     // accessToken: string;
