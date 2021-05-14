@@ -126,9 +126,15 @@ export const Chat = ({loading, logs}) => {
     window.localStorage.setItem('nickname', name);
     window.localStorage.setItem('color', color);
 
-    Meteor.call('insertChat', !color ? "#b1edff" : color, name, contents);
-    document.querySelector("#chat-area").scrollTo(0, document.querySelector("#chat-area").scrollHeight);
-    setContents('');
+    Meteor.call('insertChat', !color ? "#b1edff" : color, name, contents, (err, res) => {
+      if (err) {
+        alert(`채팅 전송 실패!`);
+        console.log('채팅 전송 실패!', err);
+      }
+      document.querySelector("#chat-area").scrollTo(0, document.querySelector("#chat-area").scrollHeight);
+      setContents('');
+      setBase64Img('');
+    });
   }
 
   const goScrollBottom = () => {
@@ -213,28 +219,14 @@ export const Chat = ({loading, logs}) => {
       blob = item.getAsFile();
     }
 
-    const canvas = contentsCanvas.current;
-    const ctx = canvas.getContext('2d');
-
-    const img = new Image();
-    img.onload = function () {
-      canvas.width = '200';
-      canvas.height = '200';
-
-      ctx.drawImage(img, 0, 0);
-    }
-
-    const URLObj = window.URL || window.webkitURL;
-
-    img.src = URLObj.createObjectURL(blob);
-
     const reader = new FileReader();
     reader.onload = function (e) {
       // cb
-      setBase64Img(reader.result.toString());
+      const str = reader.result.toString()
+      setBase64Img(str);
+      setContents(str);
     }
     reader.readAsDataURL(blob);
-
 
   }
 
@@ -299,7 +291,6 @@ export const Chat = ({loading, logs}) => {
                  onPaste={e => onContentsPaste(e)}
           ></input>
           <div id="canvas-image-input">
-            <canvas ref={contentsCanvas} className="chat-image-canvas"></canvas>
             <button>보내기</button>
             <div id="base64-test">
               <img src={base64Img}/>
