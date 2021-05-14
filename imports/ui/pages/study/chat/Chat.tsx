@@ -8,6 +8,20 @@ import {IChat} from '/imports/db/type/IChat';
 import {ILog} from '/imports/db/type/ILog';
 import {fetch} from "meteor/fetch";
 
+const useChats = () => useTracker(() => {
+  const handles = Meteor.subscribe('getChats');
+  const loading = !handles.ready();
+  const list = ChatCollection.find().fetch();
+  if (!loading) {
+    return {
+      chats: list
+    }
+  }
+  return {
+    chats: []
+  }
+});
+
 export const Chat = ({loading, logs}) => {
   const [color, setColor] = useState('');
   const [name, setName] = useState('');
@@ -15,14 +29,15 @@ export const Chat = ({loading, logs}) => {
   const contentsRef = useRef(null);
   const contentsCanvas = useRef(null);
   const [base64Img, setBase64Img] = useState('');
+  const [chatList, setChatList] = useState([]);
+  const {chats} = useChats();
 
-  const chats: IChat[] = useTracker(() => {
-    const handles = Meteor.subscribe('getChats');
-    const loading = !handles.ready();
-    const list = ChatCollection.find().fetch()
-
-    return list;
-  });
+  // const chats: IChat[] = useTracker(() => {
+  //   const handles = Meteor.subscribe('getChats');
+  //   const loading = !handles.ready();
+  //   const list = ChatCollection.find().fetch()
+  //   return list;
+  // },[]);
 
   // const chats: IChat[] = list;
 
@@ -48,7 +63,34 @@ export const Chat = ({loading, logs}) => {
       window.removeEventListener('scroll', () => {
       })
     }
-  }, [])
+  }, []);
+
+  useEffect(() => {
+    console.log('useEffect!', chats)
+
+
+    // const tester = new Image();
+    //
+    // const testPromise = onLoadImagePromise(tester).then(res => {
+    //   return res;
+    // }).catch(err => {
+    //   return err;
+    // });
+    // tester.src = value;
+    //
+    // const result = await testPromise;
+    // console.log('img? result?', testSTR, result);
+    //
+    //
+    // if (!result) return false;
+    //
+    // return result;
+
+    return () => {
+      console.log('clean-up', chats);
+    };
+  }, [chats]);
+
 
   // useEffect(() => {
   //     console.log('useEffect chats:', chats)
@@ -148,48 +190,27 @@ export const Chat = ({loading, logs}) => {
 
     return true;
 
-    // const tester = new Image();
-    //
-    // const testPromise = onLoadImagePromise(tester).then(res => {
-    //   return res;
-    // }).catch(err => {
-    //   return err;
-    // });
-    // tester.src = value;
-    //
-    // const result = await testPromise;
-    // console.log('img? result?', testSTR, result);
-    //
-    //
-    // if (!result) return false;
-    //
-    // return result;
   }
 
-  // const onLoadImagePromise = (obj) => {
-  //   return new Promise((resolve, reject) => {
-  //     obj.onload = () => resolve(true);
-  //     obj.onerror = function() {
-  //       reject(false);
-  //     }
-  //   });
-  // }
+  const onLoadImagePromise = (obj) => {
+    return new Promise((resolve, reject) => {
+      obj.onload = () => resolve(true);
+      obj.onerror = reject(false);
+    });
+  }
 
 
   const onContentsPaste = (event) => {
+    if (event.clipboardData.files.length === 0) return;
 
     const items = event.clipboardData.items;
     let blob;
 
     for (let item of items) {
-      // console.log('item', item);
       if (item.type.indexOf("image") === -1) {
-        console.log('not image');
         continue;
       }
-      // console.log('this is image', item);
       blob = item.getAsFile();
-      // cb
     }
 
     const canvas = contentsCanvas.current;
@@ -197,8 +218,8 @@ export const Chat = ({loading, logs}) => {
 
     const img = new Image();
     img.onload = function () {
-      canvas.width = '250';
-      canvas.height = '250';
+      canvas.width = '200';
+      canvas.height = '200';
 
       ctx.drawImage(img, 0, 0);
     }
@@ -209,9 +230,7 @@ export const Chat = ({loading, logs}) => {
 
     const reader = new FileReader();
     reader.onload = function (e) {
-      console.log('onload e', e);
       // cb
-      console.log(reader.result);
       setBase64Img(reader.result.toString());
     }
     reader.readAsDataURL(blob);
@@ -220,12 +239,34 @@ export const Chat = ({loading, logs}) => {
   }
 
 
+  const testClick = async () => {
+    const url =  "https://item.kakaocdn.net/do/4b5e3caaa5e3bedb9abe7b1b5ae3a4788f324a0b9c48f77dbce3a43bd11ce785"
+    console.log('click');
+    // const test = new Promise((resolve, reject) => {
+    //   Meteor.call('testClick', url, (err, res) => {
+    //     if(err) {
+    //       console.log('err!', err);
+    //       reject(err)
+    //     }
+    //     console.log('res!', res);
+    //     resolve(res)
+    //   });
+    // });
+    //
+    // const test2 = await test;
+
+
+    const test = await Meteor.syncCall('testClick', url);
+    console.log('test2', test);
+
+  }
+
   return (
     <div>
       <h1 id="chat-title">채팅방</h1>
-
       <button type="button" className="btn-reset cm-w-50p" onClick={() => onClickUserReset()}>내것만삭제</button>
       <button type="button" className="btn-reset cm-w-50p" onClick={() => onClickReset()}>일괄삭제</button>
+      <button onClick={() => testClick()}>테스트하자</button>
 
       <div id="chat-area">
         <div className="chat-contents">
