@@ -1,9 +1,19 @@
-#sz-left-menu {
+@include mobile {
+    #ma-left-menu { display: none; }
+}
+@include tablet {
+    #ma-left-menu { display: none; }
+}
+@include desktop {
+    #ma-left-menu { display: flex; }
+}
+
+#ma-left-menu {
     color: $color-white;
-    // min-height: 100vh;
     min-width: 3rem;
+    min-height: 100vh;
     position: relative;
-    display: flex;
+    // display: flex;
     flex-direction: column;
     background-color: $color-fe2f48;
     transition: 0.3s;
@@ -11,30 +21,52 @@
     &.large {
         min-width: 300px;
         transition: 0.3s;
+
+        #ma-left-menu-btn {
+            text-align: right;
+            padding-right: 2rem;
+        }
+
+        // 자식메뉴
+        ul.left-menu-child a {
+            padding-left: 2.5rem;
+        }
     }
     
     &.small {
         min-width: 3rem;
         transition: 0.3s;
+
+        #ma-left-menu-btn {
+            text-align: center;
+        }
+
+        #ma-left-menu #ma-left-menu-body li > div > a {
+            text-align: center;
+        }
     }
 
-    #sz-left-menu-head {
-        height: 3rem;
+    // 자식메뉴
+    ul.left-menu-child {
+        flex: 1;
+        width: 100%;
+        display: none;
+    }
+
+    #ma-left-menu-head {
+        height: 4rem;
         
-        #sz-left-menu-btn {
+        #ma-left-menu-btn {
             color: $color-white;
-            // width: 3rem;
             width: 100%;
-            text-align: right;
-            padding-right: 1rem;
-            height: 3rem;
+            height: 4rem;
             float: right;
             background-color: $color-fe2f48;
             border: none;
         }
     }
 
-    #sz-left-menu-body {
+    #ma-left-menu-body {
         li {
             color: #FFFFFF;
             transition: 0.2s;
@@ -52,18 +84,17 @@
             &.active > div > a {
                 color: $color-fe2f48;
                 background-color: $color-white;
-                border-radius: 0 0 2rem 0;
             }
 
-            // 자식메뉴
-            ul.left-menu-child {
-                flex: 1;
-                width: 100%;
-                display: none;
-                a {
-                    padding-left: 2.5rem;
-                }
-            }
+            // // 자식메뉴
+            // ul.left-menu-child {
+            //     flex: 1;
+            //     width: 100%;
+            //     display: none;
+            //     a {
+            //         padding-left: 2.5rem;
+            //     }
+            // }
             &.on ul.left-menu-child {
                 display: block;
                 background-color: #fe576c;
@@ -101,7 +132,7 @@
         }
     }
 
-    #sz-left-menu-footer {
+    #ma-left-menu-footer {
 
     }
 }

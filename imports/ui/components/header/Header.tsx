@@ -1,23 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { RiHome5Fill, RiLoginBoxFill, RiSettingsFill } from "react-icons/ri";
 import { Link } from 'react-router-dom';
 
 export const Header = () => {
-
   return (
-    <header id="sz-header">
-      <div className="sz-header-left">
-        <Link to="/dashboard">LOGO</Link>
+    <header id="ma-header">
+      <div className="ma-header-left">
+        <Link to="/dashboard">
+        </Link>
       </div>
 
-      <div className="sz-header-center">
-        
-        <Link to="/guestbook">방명록</Link>
+      <div className="ma-header-center">
       </div>
 
-      <div className="sz-header-right">
-        <Link to="/dashboard">HOME</Link>
-        <Link to="/login">로그인</Link>
-        <Link to="/mypage">마이페이지</Link>
+      <div className="ma-header-right">
+        <Link to="/dashboard">
+          <RiHome5Fill />
+        </Link>
+        <Link to="/login">
+          <RiLoginBoxFill />
+        </Link>
+        <Link to="/mypage">
+          <RiSettingsFill />
+        </Link>
       </div>
     </header>
   );
