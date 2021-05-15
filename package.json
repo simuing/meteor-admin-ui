@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.11.2",
+    "cheerio": "^1.0.0-rc.9",
+    "got": "^11.8.2",
     "meteor-node-stubs": "^1.0.1",
     "react": "^16.13.1",
     "react-color": "^2.19.3",
