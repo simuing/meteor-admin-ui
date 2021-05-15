@@ -234,6 +234,7 @@ export const Chat = ({loading, logs}) => {
 
 
   const testClick = async () => {
+    console.log('click')
     const url =  "https://item.kakaocdn.net/do/4b5e3caaa5e3bedb9abe7b1b5ae3a4788f324a0b9c48f77dbce3a43bd11ce785"
     
     const test = new Promise((resolve, reject) => {
@@ -249,8 +250,6 @@ export const Chat = ({loading, logs}) => {
     
     const test2 = await test;
     // const test = await Meteor.syncCall('testClick', url);
-    
-    console.log('test2', test2);
 
   }
 
