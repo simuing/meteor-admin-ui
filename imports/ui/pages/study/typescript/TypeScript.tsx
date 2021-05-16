@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Highlight from 'react-highlight';
 
 export const TypeScript = () => {
     const [page, setPage] = useState('1');
@@ -20,6 +21,7 @@ export const TypeScript = () => {
             case '1': result = <TS1/>; break;
             case '2': result = <TS2/>; break;
             case '3': result = <TS3/>; break;
+            case '3': result = <TS3/>; break;
             default: break;
         }
         return result;
@@ -27,13 +29,30 @@ export const TypeScript = () => {
 
     return (
         <div>
-            {/* <h1 className="page-title">타입스크립트</h1> */}
-
             <div className="page-content">
                 <div>
-                    <button type="button" name="1" className={"btn-default cm-w-100px"+(page==="1"?" btn-default-active":"")} onClick={onClickPage}>TypeScript</button>
-                    <button type="button" name="2" className={"btn-default cm-w-100px"+(page==="2"?" btn-default-active":"")} onClick={onClickPage}>Type</button>
-                    <button type="button" name="3" className={"btn-default cm-w-100px"+(page==="3"?" btn-default-active":"")} onClick={onClickPage}>3</button>
+                    <button type="button" name="1" className={"btn-default cm-w-25p"+(page==="1"?" btn-default-active":"")} onClick={onClickPage}>
+                        TypeScript</button>
+                    <button type="button" name="2" className={"btn-default cm-w-25p"+(page==="2"?" btn-default-active":"")} onClick={onClickPage}>
+                        Type</button>
+                    <button type="button" name="3" className={"btn-default cm-w-25p"+(page==="3"?" btn-default-active":"")} onClick={onClickPage}>
+                        Type Assertions</button>
+                    <button type="button" name="4" className={"btn-default cm-w-25p"+(page==="4"?" btn-default-active":"")} onClick={onClickPage}>
+                        Interface</button>
+                    <button type="button" name="5" className={"btn-default cm-w-25p"+(page==="5"?" btn-default-active":"")} onClick={onClickPage}>
+                        Class</button>
+                    <button type="button" name="6" className={"btn-default cm-w-25p"+(page==="6"?" btn-default-active":"")} onClick={onClickPage}>
+                        Generic</button>
+                    <button type="button" name="7" className={"btn-default cm-w-25p"+(page==="7"?" btn-default-active":"")} onClick={onClickPage}>
+                        iterator</button>
+                    <button type="button" name="8" className={"btn-default cm-w-25p"+(page==="8"?" btn-default-active":"")} onClick={onClickPage}>
+                        Decorator</button>
+                    <button type="button" name="9" className={"btn-default cm-w-25p"+(page==="9"?" btn-default-active":"")} onClick={onClickPage}>
+                        Type Inference</button>
+                    <button type="button" name="10" className={"btn-default cm-w-25p"+(page==="10"?" btn-default-active":"")} onClick={onClickPage}>
+                        React with TypeScript</button>
+                    <button type="button" name="11" className={"btn-default cm-w-25p"+(page==="11"?" btn-default-active":"")} onClick={onClickPage}>
+                        React Migration</button>
                 </div>
                 <div>
                     {getPage()}
@@ -117,17 +136,17 @@ const TS2 = () => {
     return (
         <>
             <h3 className="page-subtitle">
-                Type
+                Basic Types
             </h3>
             <div className="page-card">
                 <div className="page-card-num">1</div>
                 <h4>Primitive Type</h4>
                 <p>오브젝트와 레퍼런스 형태가 아닌 실제 값을 저장하는 자료형</p>
                 <p>Primitive형의 내장 함수를 사용 가능한 것은 JavaScript 처리 방식 덕분</p>
-                <pre>
-                    let name = 'mark';
-                    name.toString();
-                </pre>
+<Highlight languages={"javascript"}>{`
+    let name = 'mark';
+    name.toString();
+`}</Highlight>
             </div>
             <div className="page-card">
                 <div className="page-card-num">2</div>
@@ -136,17 +155,17 @@ const TS2 = () => {
                     값 자체가 변하지 않는 값을 의미<br/>
                     상수는 가리키는 포인터가 고정이라는 것이고, 리터럴은 그 자체가 값이자 그릇이라는 차이가 있다.
                 </p>
-                <pre>
-                    35; // number 리터럴은
-                    'sz' // string 리터럴
-                    true // boolean 리터럴
+<Highlight languages={"javascript"}>{`
+    35; // number 리터럴은
+    'sz' // string 리터럴
+    true // boolean 리터럴
 
-                    // object 리터럴
-                    {`{
-                        name: 'sz',
-                        age: 20
-                    }`}
-                </pre>
+    // object 리터럴
+    {
+        name: 'sz',
+        age: 20
+    }
+`}</Highlight>
             </div>
             <div className="page-card">
                 <div className="page-card-num">3</div>
@@ -154,199 +173,192 @@ const TS2 = () => {
                 <p>true or flase</p>
                 <p>boolean - primitive type<br/>Boolean - reference type/object</p>
                 <p>Null check가 필요 없는 경우 기본 자료형 boolean을 사용하는 것이 좋다.</p>
-                <pre>
-                    let isDone: boolean = false;
+<Highlight languages={"javascript"}>{`
+    let isDone: boolean = false;
 
-                    typeof isDone === 'boolean' // true
+    typeof isDone === 'boolean' // true
 
-                    // Type 'boolean' is assignable to type 'Boolean'
-                    let isOk: Boolean = true;
+    // Type 'boolean' is assignable to type 'Boolean'
+    let isOk: Boolean = true;
 
-                    // Type 'Boolean' is not assignable to type 'boolean'
-                    // 'boolean' is a primitive, but 'Boolean' is a wraper object.
-                    // prefer using 'boolean' when possible.
-                    let isNotOk: boolean = new Boolean(true);
-                </pre>
+    // Type 'Boolean' is not assignable to type 'boolean'
+    // 'boolean' is a primitive, but 'Boolean' is a wraper object.
+    // prefer using 'boolean' when possible.
+    let isNotOk: boolean = new Boolean(true);
+`}</Highlight>
             </div>
             <div className="page-card">
                 <div className="page-card-num">4</div>
                 <h4>Number / number</h4>
                 <p>JavaScript 와 같이, TypeScript 의 모든 숫자는 부동 소수점 값이다.</p>
-                <pre>
-                    let decimal: number = 6; // 10진수 리터럴
+<Highlight languages={"javascript"}>{`
+    let decimal: number = 6; // 10진수 리터럴
 
-                    let hex: number = 0xf00d; // 16진수 리터럴
+    let hex: number = 0xf00d; // 16진수 리터럴
 
-                    let binary: number = 0b1010; // 2진수 리터럴
+    let binary: number = 0b1010; // 2진수 리터럴
 
-                    let octal: number = 0o744; // 8진수 리터럴
-                </pre>
+    let octal: number = 0o744; // 8진수 리터럴
+`}</Highlight>
             </div>
             <div className="page-card">
                 <div className="page-card-num">5</div>
                 <h4>String / string</h4>
                 <p>ES6에 들어가는 Template string을 주로 사용</p>
                 <p>큰 따옴표 "" 나 작은 따옴표 '' 를 사용</p>
-                <pre>
-                    let name: string = "sz";
+<Highlight languages={"javascript"}>{`
+    let name: string = "sz";
 
-                    name = 'sz';
-                </pre>
+    name = 'sz';
+`}</Highlight>
 
                 <h4>Template String</h4>
                 <p>
                     행에 걸쳐 있거나, 표현식을 넣을 수 있는 문자열<br/>
                     backtick(= backquote) 기호에 둘러쌓여 있다.
                 </p>
-                <pre>
-                    let fullName: string = `Bob Bobbington`;
-                    let age: number = 37;
+<Highlight languages={"javascript"}>{`
+    let fullName: string = &#96;Bob Bobbington&#96;;
+    let age: number = 37;
 
-                    let sentence: string = `Hello, my name is ${ `{ fullName }` }.
-                    I'll be be ${ `{ age + 1 }` } years old next month.`;
-                </pre>
+    let sentence: string =&#96;Hello, my name is ${ `{ fullName }` }.
+    I'll be be ${ `{ age + 1 }` } years old next month.&#96;;
+`}</Highlight>
             </div>
             <div className="page-card">
                 <div className="page-card-num">6</div>
                 <h4>undefined {`&`} null</h4>
                 <p>둘 다 소문자만 존재</p>
-                <pre>
-                    let u: undefined = undefined;
-                    let n: null = null;
-                </pre>
+<Highlight languages={"javascript"}>{`
+    let u: undefined = undefined;
+    let n: null = null;
+`}</Highlight>
             </div>
             <div className="page-card">
                 <div className="page-card-num">7</div>
                 <h4>void</h4>
                 <p>타입이 없는 상태, `any`와 반대의 의미이다.</p>
-                <pre>
-                    function returnVoid(msg): void {`{
-                        console.log(msg);
-                    }`}
-                    returnVoid('return void')
-                </pre>
+<Highlight languages={"javascript"}>{`
+    function returnVoid(msg): void {
+        console.log(msg);
+    }
+    returnVoid('return void')
+`}</Highlight>
             </div>
             <div className="page-card">
                 <div className="page-card-num">8</div>
                 <h4>any</h4>
                 <p>어떤 타입이어도 상관 없는 타입</p>
                 <p>컴파일 시 타입 체크가 정상적으로 이뤄지지 않기 때문에 최대한 쓰지 않는 것을 권장한다.</p>
-                <pre>
-                    function returnAny(msg): any {`{
-                        console.log(msg);
-                    }`}
-                    returnVoid('return any')
-                </pre>
+<Highlight languages={"javascript"}>{`
+    function returnAny(msg): any {
+        console.log(msg);
+    }
+    returnVoid('return any')
+`}</Highlight>
             </div>
             <div className="page-card">
                 <div className="page-card-num">9</div>
                 <h4>Never</h4>
                 <p>리턴에 주로 사용된다.</p>
                 <p>아래 3가지 정도의 경우가 대부분이다.</p>
-                <pre>
-                    function error(msg: string): never {`{
-                        throw new Error(msg);
-                    }`}
+<Highlight languages={"javascript"}>{`
+    function error(msg: string): never {
+        throw new Error(msg);
+    }
 
-                    function fail() {`{
-                        return error("Something failed");
-                    }`}
-                    
-                    function infiniteLoop(): never {`{
-                        while (true) {
-                        }
-                    }`}
-                </pre>
+    function fail() {
+        return error("Something failed");
+    }
+    
+    function infiniteLoop(): never {
+        while (true) {
+        }
+    }
+`}</Highlight>
             </div>
             <div className="page-card">
                 <div className="page-card-num">10</div>
                 <h4>Array</h4>
                 <p>JavaScript 에서 Array는 객체이다.</p>
-                <pre>
-                {`
-                    interface Person {
-                        name: string;
-                        age: number;
-                    }
+<Highlight languages={"javascript"}>{`
+    interface Person {
+        name: string;
+        age: number;
+    }
 
-                    const p: Person {
-                        name: 'sz',
-                        age: 20
-                    }
+    const p: Person {
+        name: 'sz',
+        age: 20
+    }
 
-                    Person[] // (1)
-                    Array<Person> // (2)
-                `}
-                </pre>
+    Person[] // (1)
+    Array<Person> // (2)
+`}</Highlight>
             </div>
             <div className="page-card">
                 <div className="page-card-num">11</div>
                 <h4>Tuple</h4>
                 <p>배열인데 타입이 한가지가 아닌 경우, 사용시 주의가 필요</p>
-                <pre>
-                {`
-                    // Declare a tuple type
-                    let x: [string, number];
-                    // Initialize it
-                    x = ["hello", 10]; // OK
-                    // Initialize it incorrectly
-                    x = [10, "hello"]; // Error
+<Highlight languages={"javascript"}>{`
+    // Declare a tuple type
+    let x: [string, number];
+    // Initialize it
+    x = ["hello", 10]; // OK
+    // Initialize it incorrectly
+    x = [10, "hello"]; // Error
 
-                    x[3] = "world"; // OK, 'string' can be assigned to 'string | number'
+    x[3] = "world"; // OK, 'string' can be assigned to 'string | number'
 
-                    console.log(x[5].toString()); // OK, 'string' and 'number' both have 'toString'
+    console.log(x[5].toString()); // OK, 'string' and 'number' both have 'toString'
 
-                    x[6] = true; // Error, 'boolean' isn't 'string | number'
-                `}
-
-                {/* {tupleTest()} */}
-                </pre>
+    x[6] = true; // Error, 'boolean' isn't 'string | number'
+`}</Highlight>
             </div>
             <div className="page-card">
                 <div className="page-card-num">12</div>
                 <h4>Enum</h4>
                 <p>C의 enum과 같다.</p>
-                <pre>
-                {`
-                    enum Color {Red, Green, Blue}
-                    let c: Color = Color.Green;
+<Highlight languages={"javascript"}>{`
+    enum Color {Red, Green, Blue}
+    let c: Color = Color.Green;
 
-                    enum Color {Red = 1, Green, Blue}
-                    let c: Color = Color.Green;
-                    
-                    enum Color {Red = 1, Green = 2, Blue = 3}
-                    let c: Color = Color.Green;
+    enum Color {Red = 1, Green, Blue}
+    let c: Color = Color.Green;
+    
+    enum Color {Red = 1, Green = 2, Blue = 3}
+    let c: Color = Color.Green;
 
-                    enum Color {Red = 1, Green, Blue}
-                    let colorName: string = Color[2];
-                `}
-                </pre>
+    enum Color {Red = 1, Green, Blue}
+    let colorName: string = Color[2];
+`}</Highlight>
+            </div>
+            <div className="page-card">
+                <div className="page-card-num">13</div>
+                <h4>Symbol</h4>
+                <p>ECMAScript 2015의 Symbol</p>
+                <p>Primitive Type의 값을 담아서 사용, 고유하고 수정 불가능한 값으로 만들어준다.</p>
+                <p>접근제어자 private를 흉내내기 위해 사용되기도 했다.</p>
+<Highlight languages={"javascript"}>{`
+    let sym = Symbol();
+
+    let obj = {
+        [sym]: "value"
+    };
+
+    console.log(obj[sym]); // "value"
+`}</Highlight>
             </div>
         </>
     )
 }
-
-// const tupleTest = () => {
-//     // Declare a tuple type
-//     let x: [string, number];
-//     // Initialize it
-//     x = ["hello", 10]; // OK
-//     // Initialize it incorrectly
-//     // x = [10, "hello"]; // Error
-
-//     x[3] = "world"; // OK, 'string' can be assigned to 'string | number'
-//     console.log(x[3].toString()); // OK, 'string' and 'number' both have 'toString'
-    
-//     x[6] = true; // Error, 'boolean' isn't 'string | number' //==> 왜 되는지 확인필요
-//     console.log(x[6].toString()); // OK, 'string' and 'number' both have 'toString'
-// }
 
 // 1 - TypeScript 란?
 const TS3 = () => {
     return (
         <>
             <h3 className="page-subtitle">
-                제 3장
+            Type Assertions
             </h3>
         </>
     )
