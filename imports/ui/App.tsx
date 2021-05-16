@@ -1,5 +1,6 @@
 import React from 'react';
 import { Router } from 'react-router';
+import { RecoilRoot, atom, selector, useRecoilState, useRecoilValue } from 'recoil';
 import { createBrowserHistory } from 'history';
 import '../assets/scss/styles.scss';
 import '/imports/methods/GlobalMeteorMethods.ts'
@@ -18,16 +19,18 @@ export const renderRoutes = () => {
 
   return (
     <React.StrictMode>
-      <Router history={browserHistory}>
-        <div id="ma-container-outer">
-          <LeftMenu />
-          <div id="ma-container-inner">
-            <Header />
-            <Pages />
-            {/* <Footer /> */}
+      <RecoilRoot >
+        <Router history={browserHistory}>
+          <div id="ma-container-outer">
+            <LeftMenu />
+            <div id="ma-container-inner">
+              <Header />
+              <Pages />
+              {/* <Footer /> */}
+            </div>
           </div>
-        </div>
-      </Router>
+        </Router>
+      </RecoilRoot>
     </React.StrictMode>
   )
 }

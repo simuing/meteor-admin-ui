@@ -19,7 +19,7 @@ export interface IMenu {
     menugb: string;
     menuor: string;
     showyn: string; // Y or N
-    createdAt: Date;
+    createdAt: Date | null;
     children?: Array<IMenu>;
 }
 

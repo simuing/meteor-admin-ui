@@ -35,7 +35,9 @@ export const TypeScript = () => {
                     <button type="button" name="2" className="btn-default cm-w-100px" onClick={onClickPage}>2</button>
                     <button type="button" name="3" className="btn-default cm-w-100px" onClick={onClickPage}>3</button>
                 </div>
-                {getPage()}
+                <div>
+                    {getPage()}
+                </div>
             </div>
         </div>
     )

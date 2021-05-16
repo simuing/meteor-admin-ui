@@ -17,7 +17,14 @@
     flex-direction: column;
     background-color: $color-fe2f48;
     transition: 0.3s;
-    
+
+    // 자식메뉴
+    ul.left-menu-child {
+        flex: 1;
+        width: 100%;
+        display: none;
+    }
+
     &.large {
         min-width: 300px;
         transition: 0.3s;
@@ -44,13 +51,6 @@
         #ma-left-menu #ma-left-menu-body li > div > a {
             text-align: center;
         }
-    }
-
-    // 자식메뉴
-    ul.left-menu-child {
-        flex: 1;
-        width: 100%;
-        display: none;
     }
 
     #ma-left-menu-head {

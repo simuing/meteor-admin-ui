@@ -17,7 +17,8 @@
     "react-dom": "^16.13.1",
     "react-icons": "^4.2.0",
     "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "recoil": "^0.3.0"
   },
   "devDependencies": {
     "@types/meteor": "^1.4.49",
@@ -30,7 +31,6 @@
     "mainModule": {
       "client": "client/main.tsx",
       "server": "server/main.ts"
-    },
-    "testModule": "tests/main.ts"
+    }
   }
 }

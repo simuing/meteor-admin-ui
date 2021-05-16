@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { RiHome5Fill, RiLoginBoxFill, RiSettingsFill } from "react-icons/ri";
 import { Link } from 'react-router-dom';
+import { useMenuState } from '/imports/atoms/menuState';
 
 export const Header = () => {
-  const [menunm, setMenunm] = useState('');
+  const [menuState, setMenuState] = useMenuState();
 
   useEffect(() => {
-    setMenunm(localStorage.getItem('menunm'))
   },[])
   
   return (
     <header id="ma-header">
       <div className="ma-header-left">
-        <h1>{menunm}</h1>
+        <h1>{menuState.menunm}</h1>
       </div>
 
       <div className="ma-header-center">
