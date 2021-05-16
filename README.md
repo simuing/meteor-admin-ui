@@ -3,6 +3,7 @@
 - Meteor(React)
 - MongoDB
 - typescript
+- recoil
 <br/>
 
 ### feature
