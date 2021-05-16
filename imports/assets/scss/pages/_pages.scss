@@ -72,15 +72,60 @@
     &>div {
         animation: fade-in 0.5s alternate;
     }
-    
-    @import 'dashboard', 'guestbook', 'chat', 'mypage', 'error';
 
+    .page-card {
+        // display: inline-block;
+        // width: min-content;
+        // min-width: calc(50% - 2rem);
+        vertical-align: top;
+        padding: 1.5rem;
+        margin-right: 1.5rem;
+        margin-bottom: 1.7rem;
+        box-shadow: 1px 1px 2px 1px gainsboro;
+        border: 1px solid #efefef;
+        border-radius: 0rem;
 
-    .page-content {
+        div.page-card-num {
+            color: black;
+            font-weight: bold;
+            float: right;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            background-color: #dedede;
+            text-align: center;
+        }
+
+        h4 {
+            color: orange;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 1.7rem;
+        }
+
         p {
             display: block;
             margin-bottom: 1rem;
         }
+
+        ul {
+            li {
+                padding-left: 1rem;
+            }
+        }
+
+        pre {
+            color: white;
+            padding: 0.5rem 1rem;
+            margin-bottom: 1.7rem;
+            white-space: break-spaces;
+            background-color: rgb(71, 71, 71);
+        }
     }
+
+    @import 'dashboard', 'guestbook', 'chat', 'mypage', 'error';
 }
+
+
 
