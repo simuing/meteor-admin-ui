@@ -12,7 +12,7 @@
 export interface IMenu {
     _id?: string;
     menucd: string;
-    menuup: string;
+    menuup: string; 
     menunm: string;
     url: string;
     menulv: string;

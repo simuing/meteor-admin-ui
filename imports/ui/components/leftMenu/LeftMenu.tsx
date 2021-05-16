@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from 'react';
-import {FiMenu, FiX} from "react-icons/fi";
-import {TiThMenu, TiArrowSortedDown, TiArrowSortedUp} from "react-icons/ti";
-import {useTracker} from 'meteor/react-meteor-data';
-import {Link, useLocation} from 'react-router-dom';
-import {MenuCollection} from '/imports/db/MenuCollection';
-import {IMenu} from '../../../db/type/IMenu';
-import {config} from '/imports/type/Config'
+import React, { useState, useEffect } from 'react';
+import { FiMenu, FiX } from "react-icons/fi";
+import { TiThMenu, TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
+import { useTracker } from 'meteor/react-meteor-data';
+import { Link, useLocation } from 'react-router-dom';
+import { MenuCollection } from '/imports/db/MenuCollection';
+import { IMenu } from '../../../db/type/IMenu';
+import { config } from '/imports/type/Config'
 
 export const LeftMenu = () => {
   const [showMenu, setShowMenu] = useState(true);
