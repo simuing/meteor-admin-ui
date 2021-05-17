@@ -1,6 +1,5 @@
 import { Meteor } from 'meteor/meteor';
 import React, { useState } from 'react';
-// import { check } from 'meteor/check';
 
 export const GuestBookForm = () => {
   const [name, setName] = useState('');

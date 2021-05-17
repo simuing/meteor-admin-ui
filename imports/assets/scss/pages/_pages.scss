@@ -54,8 +54,8 @@
     // 페이지 목록 조회 영역
     .page-list {
         width: 100%;
-        padding: 1rem;
-        border: 1px solid gainsboro;
+        // padding: 1rem;
+        // border: 1px solid gainsboro;
     }
 
     .page-list-btn {
@@ -64,13 +64,23 @@
         float: right;
         margin-top: -35px;
         
-        button {
+        button,
+        a {
             min-width: 100px;
+        }
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
     
     &>div {
         animation: fade-in 0.5s alternate;
+    }
+
+    .page-card+.page-card {
+        margin-right: 1.5rem;
     }
 
     .page-card {
@@ -79,7 +89,7 @@
         // min-width: calc(50% - 2rem);
         vertical-align: top;
         padding: 1.5rem;
-        margin-right: 1.5rem;
+        // margin-right: 1.5rem;
         margin-bottom: 1.7rem;
         box-shadow: 1px 1px 2px 1px gainsboro;
         border: 1px solid #efefef;
@@ -133,3 +143,11 @@
 
 
 
+
+
+
+// 등록/수정 화면
+.page-form {
+    max-width: 60vh;
+    margin: auto;
+}

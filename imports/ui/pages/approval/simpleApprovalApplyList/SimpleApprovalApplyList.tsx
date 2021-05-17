@@ -1,25 +1,43 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { SimpleApprovalList } from '../simpleApprovalList/SimpleApprovalList';
+import DataGrid from 'react-data-grid';
 
 export const SimpleApprovalApplyList = () => {
-    const [page, setPage] = useState('1');
+    const state = {
+        columnDefs: [
+            {headerName: "Make", field: "make"},
+            {headerName: "Model", field: "model"},
+            {headerName: "Price", field: "price"}
 
+        ],
+        rowData: [
+            {make: "Toyota", model: "Celica", price: 35000},
+            {make: "Ford", model: "Mondeo", price: 32000},
+            {make: "Porsche", model: "Boxter", price: 72000}
+        ]
+    }
+    
     useEffect(() => {
-        console.log('[INFO] TypeScript page updated')
+        console.log('[INFO] SimpleApprovalApplyList page updated')
         return () => {
-            console.log('[INFO] TypeScript page clear')
+            console.log('[INFO] SimpleApprovalApplyList page clear')
         }
-    },[page])
+    },[])
 
     const onSubmitSerch = (e) => {
         e.preventDefault();
         console.log('search');
     }
 
-    const onClickPage = (e) => {
-        setPage(e.target.name);
-    }
+    const columns = [
+        { key: 'id', name: 'ID' },
+        { key: 'title', name: 'Title' }
+    ];
+      
+    const rows = [
+        { id: 0, title: 'Example' },
+        { id: 1, title: 'Demo' }
+    ];
 
     return (
         <div>
@@ -34,7 +52,7 @@ export const SimpleApprovalApplyList = () => {
                     </div>
                     <div className="page-search-form">
                         {/* <div className="search-form-input">
-                            <div className="cm-d-inline-block cm-w-100px">신청제목</div>
+                            <div className="cm-d-i-block cm-w-100px">신청제목</div>
                             <input type="text" name="title" className="cm-w-70p" value={title} onChange={(e)=>onChangeInput('title',e.target.value)}/>
                         </div> */}
                     </div>
@@ -43,10 +61,10 @@ export const SimpleApprovalApplyList = () => {
 
             <h3 className="page-subtitle">결재 신청 목록</h3>
             <div className="page-list-btn">
-                <Link to="/board/insert" className="btn-default">등록</Link>
+                <Link to="/approval/apply/insert" className="btn-default">등록</Link>
             </div>
             <div className="page-list">
-                <SimpleApprovalList></SimpleApprovalList>
+                <DataGrid columns={columns} rows={rows} />;
             </div>
         </div>
     )

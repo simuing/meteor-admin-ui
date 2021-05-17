@@ -1,30 +1,27 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from "react-router-dom";
 
 export const SimpleApproval = () => {
-    const [page, setPage] = useState('1');
+    let history = useHistory();
 
     useEffect(() => {
-        console.log('[INFO] TypeScript page updated')
+        console.log('[INFO] SimpleApproval page updated')
+        history.push("/approval/apply/insert"); //결재신청함으로 이동
         return () => {
-            console.log('[INFO] TypeScript page clear')
+            console.log('[INFO] SimpleApproval page clear')
         }
-    },[page])
+    },[])
 
-    const onClickPage = (e) => {
-        setPage(e.target.name);
-    }
-
-    
     return (
         <div>
-            <h1 className="page-title">
+            {/* <h1 className="page-title">
                 결재 현황
             </h1>
 
             <h3 className="page-subtitle">결재 현황</h3>
             <div className="page-content">
                 
-            </div>
+            </div> */}
         </div>
     )
 }

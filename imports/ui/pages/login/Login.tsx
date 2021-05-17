@@ -1,6 +1,5 @@
 import { Meteor } from 'meteor/meteor';
 import React, { useState } from 'react';
-// import { check } from 'meteor/check';
 import { IUser } from '/imports/type/IUser';
 
 export const LoginForm = () => {

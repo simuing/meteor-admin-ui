@@ -1,13 +1,20 @@
 // form
 .cm-form {
-    div {
-        display: inline-block;
-    }
-
     input {
-        padding: 0.5rem 0.8rem;
+        padding: 0.3rem 0.5rem;
         font-size: 15px;
         border: 1px solid gainsboro;
         border-radius: 3px;
+    }
+
+    // 줄간격
+    .cm-form-row {
+        margin-top: 1rem;
+    }
+
+    // 버튼영역
+    .cm-form-btn {
+        margin-top: 1rem;
+        text-align: center;
     }
 }

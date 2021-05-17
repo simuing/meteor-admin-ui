@@ -9,6 +9,5 @@ const menuState = atom({
 })
 
 export function useMenuState() {
-    /// get set
     return useRecoilState(menuState);
 }

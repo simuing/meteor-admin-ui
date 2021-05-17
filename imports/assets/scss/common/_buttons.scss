@@ -49,4 +49,11 @@
     background-color: gray;
     border: none;
     border-radius: 3px;
+
+    &:hover,
+    &:active,
+    &.btn-default-active {
+        color: white;
+        background-color: rgb(71, 71, 71);
+    }
 }

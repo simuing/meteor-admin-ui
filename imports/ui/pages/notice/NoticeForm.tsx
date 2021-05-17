@@ -24,7 +24,7 @@ export const NoticeForm = () => {
   return (
     <form onSubmit={onSubmit} className="cm-form">
       
-      <div className="cm-d-inline-block">
+      <div className="cm-d-i-block">
         <div className="cm-w-150px">작성자</div>
         <input id="name" className="cm-w-200px" name="name" type="text" 
           value={name} 
@@ -32,7 +32,7 @@ export const NoticeForm = () => {
           onChange={e => onInputChange('name', e.target.value)}/>
       </div>
 
-      <div className="cm-d-inline-block">
+      <div className="cm-d-i-block">
         <div className="cm-w-150px">제목</div>
         <input id="contents" className="cm-w-200px" name="contents" type="text" 
           value={title} 
@@ -40,7 +40,7 @@ export const NoticeForm = () => {
           onChange={e => onInputChange('title', e.target.value)}/>
       </div>
 
-      <div className="cm-d-inline-block">
+      <div className="cm-d-i-block">
         <div className="cm-w-150px">내용</div>
         <input id="contents" className="cm-w-200px" name="contents" type="text" 
           value={contents} 

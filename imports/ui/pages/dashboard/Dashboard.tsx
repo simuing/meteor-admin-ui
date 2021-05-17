@@ -45,18 +45,18 @@ export const Dashboard = () => {
                     <Link to="/chat" >
                         채팅방 <RiExternalLinkLine />
                     </Link>
-                    <Link to="/board" >
-                        공지사항 <RiExternalLinkLine />
+                    <Link to="/study/typescript" >
+                        공부방 <RiExternalLinkLine />
                     </Link>
-                    <Link to="/guestbook" >
-                        방명록 <RiExternalLinkLine />
+                    <Link to="/approval/apply/insert" >
+                        결재신청 <RiExternalLinkLine />
                     </Link>
                     <Link to="/mypage" >
                         마이페이지 <RiExternalLinkLine />
                     </Link>
                 </div>
 
-                <h3 className="page-subtitle">데이터 현황</h3>
+                {/* <h3 className="page-subtitle">데이터 현황</h3>
                 <div className="dashboard-chart">
                     <div className="dashboard-chart-cnt">
                         <p>0</p>
@@ -82,7 +82,7 @@ export const Dashboard = () => {
                         <p>4</p>
                         <span>log</span>
                     </div>
-                </div>
+                </div> */}
             </div>
         </>
     )

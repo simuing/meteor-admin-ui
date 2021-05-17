@@ -1,10 +1,12 @@
-import {Meteor} from 'meteor/meteor';
-import {UserCollection} from '/imports/db/UserCollection';
-import {LogCollection} from '/imports/db/LogCollection';
-import {ChatCollection} from '/imports/db/ChatCollection';
-import {BoardCollection} from '/imports/db/BoardCollection';
-import {GuestBookCollection} from '/imports/db/GuestBookCollection';
-import {MenuCollection} from '/imports/db/MenuCollection';
+import { Meteor } from 'meteor/meteor';
+import { UserCollection } from '/imports/db/UserCollection';
+import { LogCollection } from '/imports/db/LogCollection';
+import { ChatCollection } from '/imports/db/ChatCollection';
+import { BoardCollection } from '/imports/db/BoardCollection';
+import { GuestBookCollection } from '/imports/db/GuestBookCollection';
+import { MenuCollection } from '/imports/db/MenuCollection';
+import { SimpleApprovalCollection } from '/imports/db/SimpleApprovalCollection';
+// import { CommonCodeCollection } from '/imports/db/CommonCodeCollection';
 
 import '/imports/methods/GlobalMeteorMethods.ts';
 
@@ -28,9 +30,13 @@ Meteor.startup(() => {
     Meteor.publish('getBoards', () => {
       return BoardCollection.find({});
     });
-    // - BoardList.tsx
+    // - GuestBook.tsx
     Meteor.publish('getGuestBooks', () => {
       return GuestBookCollection.find({});
+    });
+    // - SimpleApprovalCollection.tsx
+    Meteor.publish('getApprovalCollection', () => {
+      return SimpleApprovalCollection.find({});
     });
     // - LeftMenu.tsx
     Meteor.publish('getMenus', () => {

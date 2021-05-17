@@ -35,15 +35,15 @@ export const Board = () => {
                     </div>
                     <div className="page-search-form">
                         <div className="search-form-input">
-                            <div className="cm-d-inline-block cm-w-100px">공지제목</div>
+                            <div className="cm-d-i-block cm-w-100px">공지제목</div>
                             <input type="text" name="title" className="cm-w-70p" value={title} onChange={(e)=>onChangeInput('title',e.target.value)}/>
                         </div>
                         <div className="search-form-input">
-                            <div className="cm-d-inline-block cm-w-100px">공지내용</div>
+                            <div className="cm-d-i-block cm-w-100px">공지내용</div>
                             <input type="text" name="contents" className="cm-w-70p" value={contents} onChange={(e)=>onChangeInput('contents',e.target.value)}/>
                         </div>
                         <div className="search-form-input">
-                            <div className="cm-d-inline-block cm-w-100px">작성자</div>
+                            <div className="cm-d-i-block cm-w-100px">작성자</div>
                             <input type="text" name="name" className="cm-w-20p" value={name} onChange={(e)=>onChangeInput('name',e.target.value)}/>
                         </div>
                     </div>
