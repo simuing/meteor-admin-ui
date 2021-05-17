@@ -68,25 +68,7 @@ export const Chat = ({loading, logs}) => {
   }, []);
 
   useEffect(() => {
-    console.log('useEffect!', chats)
-
-
-    // const tester = new Image();
-    //
-    // const testPromise = onLoadImagePromise(tester).then(res => {
-    //   return res;
-    // }).catch(err => {
-    //   return err;
-    // });
-    // tester.src = value;
-    //
-    // const result = await testPromise;
-    // console.log('img? result?', testSTR, result);
-    //
-    //
-    // if (!result) return false;
-    //
-    // return result;
+   
 
     return () => {
       console.log('clean-up', chats);
@@ -186,7 +168,7 @@ export const Chat = ({loading, logs}) => {
     setColor(color.hex)
   }
 
-  const isImageURL = (value: string) => {
+  const isImageURL = async (value: string) => {
 
     const testSTR = value.substring(0, 30);
 
@@ -196,13 +178,34 @@ export const Chat = ({loading, logs}) => {
     // if (!regexHttp.test(value) && !regexBase64.test(value)) return;
     if (!(regexHttp.test(value) || regexBase64.test(value))) return;
 
-    return true;
+    const tester = new Image();
+      
+    const testPromise = onLoadImagePromise(tester).then(res => {
+      console.log('then res', res);
+      return res;
+    }).catch(err => {
+      console.log('catch', err);
+      return err;
+    });
+    tester.src = value;
+    
+    const result = await testPromise;
+    console.log('img? result?', testSTR, result);
+    
+    
+    if (!result) return false;
+    
+    return result;
+
+    // return true;
 
   }
 
   const onLoadImagePromise = (obj) => {
     return new Promise((resolve, reject) => {
-      obj.onload = () => resolve(true);
+      obj.onload = () => {
+        resolve(true);
+      }
       obj.onerror = reject(false);
     });
   }
@@ -269,7 +272,7 @@ export const Chat = ({loading, logs}) => {
                 <div className="chat-date">{getDate(chat.createdAt.toString())}</div>
                 <div>
                   <div className="chat-nickname" style={{backgroundColor: chat.color}}>{chat.name}</div>
-                  {isImageURL(chat.contents) ?
+                  {chat.isImage ?
                     <img className="chat-image" src={chat.contents} alt="img" width="150"/> :
                     <div className="chat-contents">{checkHyperLink(chat.contents)}</div>
                   }

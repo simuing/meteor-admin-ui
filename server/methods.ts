@@ -8,8 +8,8 @@ Meteor.methods({
     // 'https://story.pxd.co.kr/1516';
     // 'https://www.naver.com'
 
-    const uri = 'http://api2.redprinting.co.kr'
-    // const uri = 'https://story.pxd.co.kr/1516';
+    // const uri = 'http://api2.redprinting.co.kr'
+    const uri = 'https://story.pxd.co.kr/1516';
     // const uri = url
 
     /////////////////////////////////////
