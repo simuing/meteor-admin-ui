@@ -6,9 +6,6 @@ import {TwitterPicker} from 'react-color';
 import {Meteor} from 'meteor/meteor';
 import {IChat} from '/imports/db/type/IChat';
 import {ILog} from '/imports/db/type/ILog';
-import {fetch} from "meteor/fetch";
-import cheerio from 'cheerio';
-import got from 'got';
 
 const useChats = () => useTracker(() => {
   const handles = Meteor.subscribe('getChats');
