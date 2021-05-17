@@ -87,6 +87,9 @@
 
         div.page-card-num {
             color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: bold;
             float: right;
             width: 1.5rem;
@@ -125,7 +128,7 @@
         }
     }
 
-    @import 'dashboard', 'guestbook', 'chat', 'mypage', 'error';
+    @import 'dashboard', 'guestbook', 'chat', 'mypage', 'error', 'approval';
 }
 
 

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BoardList } from "./BoardList";
+import { NoticeList } from "./NoticeList";
 
-export const Board = () => {
+export const Notice = () => {
     const [title, setTitle] = useState('');
     const [contents, setContents] = useState('');
     const [name, setName] = useState('');
@@ -10,7 +10,6 @@ export const Board = () => {
     const onSubmitSerch = (e) => {
         e.preventDefault();
         console.log('search');
-        
     }
 
     const onChangeInput = (type: string, val: string) => {
@@ -25,8 +24,9 @@ export const Board = () => {
 
     return (
         <div>
-            <h1 className="page-title">자유게시판</h1>
-            <h3 className="page-subtitle">자유게시판 검색</h3>
+            <h1 className="page-title">공지사항</h1>
+
+            <h3 className="page-subtitle">공지사항 검색</h3>
             <div className="page-search">
                 <form onSubmit={(e)=>onSubmitSerch(e)}>
                     <div className="page-search-btn">
@@ -55,7 +55,7 @@ export const Board = () => {
                 <Link to="/board/insert" className="btn-default">등록</Link>
             </div>
             <div className="page-list">
-                <BoardList></BoardList>
+                <NoticeList></NoticeList>
             </div>
         </div>
     )

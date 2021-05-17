@@ -148,20 +148,66 @@ export const defaultMenu: Array<IMenu> = [
                 url:  '/approval/list',
                 menulv:  '2',
                 menugb:  'AP',
-                menuor:  '2',
+                menuor:  '3',
                 showyn: 'Y',
                 createdAt: new Date()
+            },
+            {
+                menucd: 'MNAP04',
+                menuup: 'MNAP00',
+                menunm:  '결재승인관리',
+                url:  '/approval/management',
+                menulv:  '2',
+                menugb:  'AP',
+                menuor:  '4',
+                showyn: 'Y',
+                createdAt: new Date(),
+                children: [
+                    {
+                        menucd: 'MNAP41',
+                        menuup: 'MNAP04',
+                        menunm:  '결재신청현황',
+                        url:  '/approval/management/apply/list',
+                        menulv:  '3',
+                        menugb:  'AP',
+                        menuor:  '1',
+                        showyn: 'Y',
+                        createdAt: new Date(),
+                    },
+                    {
+                        menucd: 'MNAP42',
+                        menuup: 'MNAP04',
+                        menunm:  '승인완료함',
+                        url:  '/approval/management/approval/list',
+                        menulv:  '3',
+                        menugb:  'AP',
+                        menuor:  '2',
+                        showyn: 'Y',
+                        createdAt: new Date(),
+                    },
+                ]
             },
         ]
     },
     {
         menucd: 'BD0000',
         menuup: 'MN0000',
-        menunm:  '공지사항',
+        menunm:  '자유게시판',
         url:  '/board',
         menulv:  '1',
         menugb:  'BD',
         menuor:  '4',
+        showyn: 'Y',
+        createdAt: new Date()
+    },
+    {
+        menucd: 'NT0000',
+        menuup: 'MN0000',
+        menunm:  '공지사항',
+        url:  '/notice',
+        menulv:  '1',
+        menugb:  'NT',
+        menuor:  '5',
         showyn: 'Y',
         createdAt: new Date()
     },
@@ -174,6 +220,17 @@ export const defaultMenu: Array<IMenu> = [
         menugb:  'GB',
         menuor:  '999',
         showyn: 'Y',
+        createdAt: new Date()
+    },
+    {
+        menucd: 'LO0000',
+        menuup: 'MN0000',
+        menunm:  'Login',
+        url:  '/login',
+        menulv:  '1',
+        menugb:  'LO',
+        menuor:  '999',
+        showyn: 'N',
         createdAt: new Date()
     },
     

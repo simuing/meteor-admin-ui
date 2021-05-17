@@ -42,6 +42,9 @@ export const LeftMenu = () => {
 
   useEffect(() => {
     console.info('[INFO] LeftMenu componentDidMount')
+    // if(!menuState) {
+    //   const selectedMenu = menus.find(menu=>menu.url.includes(pathName));
+    // }
     return () => {
       setShowMenu(true);
     }
@@ -55,6 +58,7 @@ export const LeftMenu = () => {
       setMenuState(selectedMenu);
     }
   }, [pathName]);
+
 
   const onClickShowMenu = () => {
     setShowMenu(!showMenu);

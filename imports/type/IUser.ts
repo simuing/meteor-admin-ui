@@ -5,7 +5,6 @@ export interface IUser {
     nickname: string;
     createDate: Date;
     updateDate: Date;
-
     // TODO ADD Auth
     // accessToken: string;
 }
