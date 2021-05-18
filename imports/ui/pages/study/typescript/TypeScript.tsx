@@ -12,13 +12,13 @@ export const TypeScript = () => {
     const btnState = useTsBtnValue();
 
     useEffect(() => {
-        console.log('[INFO] TypeScript page updated')
+        console.log('[INFO] TypeScript page updated: '+ pageState.tsPage);
         return () => {
-            console.log('[INFO] TypeScript page clear')
+            console.log('[INFO] TypeScript page clear: '+ pageState.tsPage);
         }
     },[pageState])
 
-    const onClickPage = (e) => {
+    const onClickPage = (e: React.MouseEvent<HTMLButtonElement>) => {
         setPageState({
             ...pageState,
             tsPage: e.target.name
@@ -42,7 +42,7 @@ export const TypeScript = () => {
             <div className="page-content">
                 <div>
                     {btnState.map((btn)=>(
-                        <button type="button" 
+                        <button type="button" key={btn.name}
                                 name={btn.name} 
                                 onClick={onClickPage}
                                 className={"btn-default cm-w-25p"+(pageState.tsPage===btn.name?" btn-default-active":"")}

@@ -5,7 +5,7 @@ const tsBtnState = atom({
     default: [
         {name: '1' , title: 'TypeScript'},
         {name: '2' , title: 'Type'},
-        {name: '3' , title: 'Type Assertions'},
+        {name: '3' , title: 'Type Assertionsm, alias'},
         {name: '4' , title: 'Interface'},
         {name: '5' , title: 'Class'},
         {name: '6' , title: 'Generic'},
