@@ -14,8 +14,8 @@ export interface IApprovalApply {
   APPLY_NM          : string; // applyName 신청자 이름
   APPLY_TYPE        : string; // applyType 근무형태
   APPLY_LOCATION    : string; // applyLocation 근무지
-  APPLY_ST_DATETIME : Date;   // applyStartDatetime 신청 시작일시
-  APPLY_ED_DATETIME : Date;   // applyEndDatetime 신청 종료시간
+  APPLY_ST_DATETIME : Date | null;   // applyStartDatetime 신청 시작일시
+  APPLY_ED_DATETIME : Date | null;   // applyEndDatetime 신청 종료시간
   APPLY_FEE         : number; // applyFee 결재신청금액
   APPROVAL_ID       : string | null; // approvalID 결재자 사번
   APPROVAL_STATUS   : string | null; // approvalStatus 결재상태

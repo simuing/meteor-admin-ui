@@ -13,7 +13,7 @@ const approvalApplyState = atom<IApprovalApply>({
       APPLY_FEE: 0,
       APPROVAL_ID: '',
       APPROVAL_STATUS: '',
-      APPROVAL_DT: null,
+      APPROVAL_DATETIME: null,
       CREATE_DT: null,
       UPDATE_DT: null
     },
