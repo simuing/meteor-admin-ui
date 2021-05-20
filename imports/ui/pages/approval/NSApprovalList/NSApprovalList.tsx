@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export const SimpleApprovalList = () => {
+export const NSApprovalList = () => {
     useEffect(() => {
-        console.log('[INFO] SimpleApprovalList page updated')
+        console.log('[INFO] NSApprovalList page updated')
         return () => {
-            console.log('[INFO] SimpleApprovalList page clear')
+            console.log('[INFO] NSApprovalList page clear')
         }
     },[])
 

@@ -1,6 +1,6 @@
-import { SimpleApproval } from './simpleApproval/SimpleApproval';
-import { SimpleApprovalApply } from './simpleApprovalApply/SimpleApprovalApply';
-import { SimpleApprovalApplyList } from './simpleApprovalApplyList/SimpleApprovalApplyList';
-import { SimpleApprovalList } from './simpleApprovalList/SimpleApprovalList';
+import { NSApproval } from './NSApproval/NSApproval';
+import { NSApprovalApply } from './NSApprovalApply/NSApprovalApply';
+import { NSApprovalApplyList } from './NSApprovalApplyList/NSApprovalApplyList';
+import { NSApprovalList } from './NSApprovalList/NSApprovalList';
 
-export { SimpleApproval, SimpleApprovalApply, SimpleApprovalApplyList, SimpleApprovalList };
+export { NSApproval, NSApprovalApply, NSApprovalApplyList, NSApprovalList };

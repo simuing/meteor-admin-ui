@@ -5,7 +5,7 @@ import { ChatCollection } from '/imports/db/ChatCollection';
 import { BoardCollection } from '/imports/db/BoardCollection';
 import { GuestBookCollection } from '/imports/db/GuestBookCollection';
 import { MenuCollection } from '/imports/db/MenuCollection';
-import { SimpleApprovalCollection } from '/imports/db/SimpleApprovalCollection';
+import { NSApprovalCollection } from '/imports/db/NSApprovalCollection';
 // import { CommonCodeCollection } from '/imports/db/CommonCodeCollection';
 
 import '/imports/methods/GlobalMeteorMethods.ts';
@@ -34,9 +34,9 @@ Meteor.startup(() => {
     Meteor.publish('getGuestBooks', () => {
       return GuestBookCollection.find({});
     });
-    // - SimpleApprovalCollection.tsx
-    Meteor.publish('getApprovalCollection', () => {
-      return SimpleApprovalCollection.find({});
+    // - NSApprovalCollection.tsx
+    Meteor.publish('getNSApprovalCollection', () => {
+      return NSApprovalCollection.find({});
     });
     // - LeftMenu.tsx
     Meteor.publish('getMenus', () => {

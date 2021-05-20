@@ -2,7 +2,7 @@
  * @author sz
  * @description 2021.05.14. create
  */
-export interface ISimpleApproval { 
+export interface INSApproval { 
     _id?: string;
     id: string;             //사번
     name: string;           //이름

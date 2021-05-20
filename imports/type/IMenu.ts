@@ -28,7 +28,7 @@ export interface IMenu {
  */
 export const defaultMenu: Array<IMenu> = [
     {
-        menucd: 'DB0000',
+        menucd: 'MNDB00',
         menuup: 'MN0000',
         menunm:  '대시보드',
         url:  '/dashboard',
@@ -39,7 +39,7 @@ export const defaultMenu: Array<IMenu> = [
         createdAt: new Date()
     },
     {
-        menucd: 'MY0000',
+        menucd: 'MNMY00',
         menuup: 'MN0000',
         menunm:  '마이페이지',
         url:  '/mypage',
@@ -50,7 +50,7 @@ export const defaultMenu: Array<IMenu> = [
         createdAt: new Date()
     },
     {
-        menucd: 'CT0000',
+        menucd: 'MNCT00',
         menuup: 'MN0000',
         menunm:  '채팅방',
         url:  '/chat',
@@ -61,7 +61,7 @@ export const defaultMenu: Array<IMenu> = [
         createdAt: new Date()
     },
     {
-        menucd: 'ST0000',
+        menucd: 'MNST00',
         menuup: 'MN0000',
         menunm:  '공부방',
         url:  '/study',
@@ -72,8 +72,8 @@ export const defaultMenu: Array<IMenu> = [
         createdAt: new Date(),
         children: [
             {
-                menucd: 'ST0001',
-                menuup: 'ST0000',
+                menucd: 'MNST01',
+                menuup: 'MNST00',
                 menunm:  '타입스크립트',
                 url:  '/study/typescript',
                 menulv:  '2',
@@ -83,8 +83,8 @@ export const defaultMenu: Array<IMenu> = [
                 createdAt: new Date(),
                 children: [
                     {
-                        menucd: 'ST0011',
-                        menuup: 'ST0002',
+                        menucd: 'MNST11',
+                        menuup: 'MNST01',
                         menunm:  '타입스크립트 입문',
                         url:  '/study/typescript/1',
                         menulv:  '3',
@@ -94,8 +94,8 @@ export const defaultMenu: Array<IMenu> = [
                         createdAt: new Date()
                     },
                     {
-                        menucd: 'ST0012',
-                        menuup: 'ST0001',
+                        menucd: 'MNST12',
+                        menuup: 'MNST01',
                         menunm:  '타입스크립트 초급',
                         url:  '/study/typescript/2',
                         menulv:  '3',
@@ -190,7 +190,7 @@ export const defaultMenu: Array<IMenu> = [
         ]
     },
     {
-        menucd: 'BD0000',
+        menucd: 'MNBD00',
         menuup: 'MN0000',
         menunm:  '자유게시판',
         url:  '/board',
@@ -201,7 +201,7 @@ export const defaultMenu: Array<IMenu> = [
         createdAt: new Date()
     },
     {
-        menucd: 'NT0000',
+        menucd: 'MNNT00',
         menuup: 'MN0000',
         menunm:  '공지사항',
         url:  '/notice',
@@ -212,7 +212,7 @@ export const defaultMenu: Array<IMenu> = [
         createdAt: new Date()
     },
     {
-        menucd: 'GB0000',
+        menucd: 'MNGB00',
         menuup: 'MN0000',
         menunm:  '방명록',
         url:  '/guestbook',
@@ -223,7 +223,7 @@ export const defaultMenu: Array<IMenu> = [
         createdAt: new Date()
     },
     {
-        menucd: 'LO0000',
+        menucd: 'MNLO00',
         menuup: 'MN0000',
         menunm:  'Login',
         url:  '/login',
