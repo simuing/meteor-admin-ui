@@ -48,9 +48,6 @@ export const Dashboard = () => {
                     <Link to="/study/typescript" >
                         공부방 <RiExternalLinkLine />
                     </Link>
-                    <Link to="/approval/apply/insert" >
-                        결재신청 <RiExternalLinkLine />
-                    </Link>
                     <Link to="/mypage" >
                         마이페이지 <RiExternalLinkLine />
                     </Link>

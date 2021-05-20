@@ -8,8 +8,6 @@ Meteor.methods({
     initCommonCode: function() {
       console.info('[INFO] CommonCode data init')
       // CommonCodeCollection.remove({});
-      // Meteor.call('insertCommonCode', applyLocation);
-      // Meteor.call('insertCommonCode', approvalStatus);
     },
     insertCommonCode: function (appr: ICommonCode) {
       CommonCodeCollection.insert({ ...appr });

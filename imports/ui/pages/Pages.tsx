@@ -1,8 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router';
-
 import { LoginForm } from './login/Login';
-import { NSApproval, NSApprovalApply, NSApprovalApplyList, NSApprovalList } from './approval';
 import { Chat, TypeScript } from './study';
 import { MyPage } from './mypage/MyPage';
 import { Dashboard } from './dashboard/Dashboard';
@@ -29,10 +27,6 @@ export const Pages = () => {
                 <Route exact path="/mypage" component={MyPage}/>
                 <Route exact path="/study" component={TypeScript}/>
                 <Route exact path="/study/typescript" component={TypeScript}/>
-                <Route exact path="/approval" component={NSApproval}/>
-                <Route exact path="/approval/apply/insert" component={NSApprovalApply}/>
-                <Route exact path="/approval/apply/list" component={NSApprovalApplyList}/>
-                <Route exact path="/approval/list" component={NSApprovalList}/>
                 <Route path="" component={()=>ErrorPage("404")}/>
             </Switch>
         </div>
