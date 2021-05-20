@@ -10,6 +10,7 @@
  * web 데이터를 TNSApproval 타입으로 세팅하여 NSApprovals에 저장 
  */
 export interface IApprovalApply {
+<<<<<<< HEAD
   APPLY_ID          : string;        // applyID 신청자 사번
   APPLY_NM          : string;        // applyName 신청자명
   APPLY_TYPE        : string;        // applyType 근무형태
@@ -18,6 +19,16 @@ export interface IApprovalApply {
   APPLY_ED_DATETIME : Date;          // applyEndDatetime 신청 종료시간
   APPLY_FEE         : number;        // applyFee 결재신청금액
   APPLY_MEMO        : string | null; // applyMemo 결재사유
+=======
+  APPLY_ID          : string; // applyID 신청자 사번
+  APPLY_NM          : string; // applyName 신청자 이름
+  APPLY_TYPE        : string; // applyType 근무형태
+  APPLY_LOCATION    : string; // applyLocation 근무지
+  APPLY_ST_DATETIME : Date | null;   // applyStartDatetime 신청 시작일시
+  APPLY_ED_DATETIME : Date | null;   // applyEndDatetime 신청 종료시간
+  APPLY_FEE         : number; // applyFee 결재신청금액
+  APPROVAL_ID       : string | null; // approvalID 결재자 사번
+>>>>>>> fa65aa83c089f8376af15e6eeee81ef62092e70d
   APPROVAL_STATUS   : string | null; // approvalStatus 결재상태
   APPROVAL_ID       : string | null; // approvalID 결재자 사번
   APPROVAL_NM       : string | null; // approvalID 결재자명

@@ -76,6 +76,7 @@
             &.active > div > a {
                 color: $color-fe2f48;
                 background-color: $color-white;
+                border-bottom: 1px solid $color-fe2f48;
             }
 
             // // 자식메뉴
@@ -96,7 +97,7 @@
             &.on[data-menulv="3"] > div > a {
                 color: $color-fe2f48;
                 display: block;
-                background-color: $color-white;
+                background-color: $color-ffcdd3;
             }
 
             & > div > a {

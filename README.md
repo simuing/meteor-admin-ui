@@ -6,12 +6,15 @@
 - recoil
 <br/>
 
-### feature
-#### 채팅방
-version 0.0.1
+### change log
+#### 0.0.1
+meteor remove autopublish
+meteor npm i react-icon (https://react-icons.github.io/react-icons/icons?name=ri)
 <img src="./imports/assets/screenshot/20210506.png"/>
 
-
-### 수정이력
-meteor remove autopublish
-npm install react-icon (https://react-icons.github.io/react-icons/icons?name=ri)
+#### 0.0.2
+npm install recoil
+npm install react-highlight
+npm install react-datetime
+npm install react-data-grid
+<img src="./imports/assets/screenshot/20210519.PNG"/>
