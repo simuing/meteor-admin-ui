@@ -84,21 +84,72 @@ type PersonTuple = [string, number];
 let another: PersonTuple = ['Hyo', 20];
 `}</Highlight>
     </div>
-
+ 
 
 
     <div className="page-card">
         <h4>Interface 와의 차이점(1)</h4>
         <p>
-            컴파일이 시도되었을때 타입으로 알려준다고 한다.
+            컴파일이 시도되었을때 타입에서 에러가 날 경우 타입으로 알려준다고 한다.
         </p>
 
         <h5>sample code</h5>
 <Highlight languages={"javascript"}>{`
-let someValue: any = "this is a string";
+type Alias = { num: number } 
 
-let strLength: number = (<string>someValue).length;
-let strLength: number = (someValue as string).length;
+interface Interface {
+    num: number;
+}
+
+declare function aliased(arg: Alias): Alias;
+declare function interfaced(arg: Interface): Interface;
+
+/*
+
+1. type alias 는 object literal type 으로
+2. interface 는 interface 로
+
+*/
+`}</Highlight>
+    </div>
+
+    <div className="page-card">
+        <h4>Interface 와의 차이점(2)</h4>
+        <p>
+          interface와 클래스에 상속받을 수 있지만 권장하는 방식이 아니다.
+        </p>
+
+        <h5>sample code</h5>
+<Highlight languages={"javascript"}>{`
+type PersonAlias = {
+  name: string;
+  age: number;
+}
+
+interface IPerson extends PersonAlias {
+
+}
+
+let ip: IPerson = {
+  name: 'Mark',
+  age: 35
+};
+
+class PersonImpl implements PersonAlias {
+  name: string;
+  age: number;
+
+  hello() {
+    console.log('안녕하세요.');
+  }
+}
+
+let pi: PersonImpl = new PersonImpl();
+pi.hello();
+
+class PersonChild extends PersonAlias {
+
+}
 `}</Highlight>
     </div>
 </>
