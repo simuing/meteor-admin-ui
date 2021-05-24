@@ -12,6 +12,9 @@ import { Notice } from './notice/Notice';
 import { NoticeForm } from './notice/NoticeForm';
 
 export const Pages = () => {
+    const handleTop = () => {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
     return (
         <div id="ma-pages">
             <Switch>
@@ -29,6 +32,8 @@ export const Pages = () => {
                 <Route exact path="/study/typescript" component={TypeScript}/>
                 <Route path="" component={()=>ErrorPage("404")}/>
             </Switch>
+
+            <div id="ma-btn-gotop" onClick={handleTop}>TOP</div>
         </div>
     )
 }

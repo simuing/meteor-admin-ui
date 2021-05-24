@@ -1,7 +1,7 @@
 
 import React from 'react';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import Highlight from 'react-highlight';
+
 
 /**
  * @description Indexable Types
@@ -21,7 +21,7 @@ const TS5 = () => {
         </p>
 
         <h5>sample code</h5>
-<SyntaxHighlighter languages={"javascript"} style={docco}>{`
+<Highlight languages={"javascript"}>{`
 interface StringArray {
     [index: number]: string;
 }
@@ -45,7 +45,7 @@ const sad: StringArrayDictionary = {};
 //당연히 옵셔널하다.
 sad[100] = '백';
 sad.hundred = '백';
-`}</SyntaxHighlighter>
+`}</Highlight>
     </div>
 
 
@@ -56,7 +56,7 @@ sad.hundred = '백';
         </p>
 
         <h5>sample code</h5>
-<SyntaxHighlighter languages={"javascript"} style={docco}>{`
+<Highlight languages={"javascript"}>{`
 interface StringDictionary {
     [index: string]: string;
     name: string;
@@ -74,7 +74,7 @@ interface StringDictionaryNo {
     [index: string]: string;
     // name: number; // (X) 인덱서블 타입이 string 값을 가지기 때문에 number를 필수로 끌어오면 에러
 }
-`}</SyntaxHighlighter>
+`}</Highlight>
     </div>
 
   </>

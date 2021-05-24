@@ -1,6 +1,6 @@
 import React from 'react';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import Highlight from 'react-highlight';
+
 
 /**
  * @description Type Assertions, Type alias
@@ -27,12 +27,12 @@ return (
         </p>
 
         <h5>sample code</h5>
-<SyntaxHighlighter languages={"javascript"} style={docco}>{`
+<Highlight languages={"javascript"}>{`
 let someValue: any = "this is a string";
 
 let strLength: number = (<string>someValue).length;
 let strLength: number = (someValue as string).length;
-`}</SyntaxHighlighter>
+`}</Highlight>
     </div>
 
 
@@ -46,21 +46,21 @@ let strLength: number = (someValue as string).length;
 
         <h5>Aliasing Primitive</h5>
         <p>별 의미 없다.</p>
-<SyntaxHighlighter languages={"javascript"} style={docco}>{`
+<Highlight languages={"javascript"}>{`
 type MyStringType = string;
 
 const str = 'world';
 
 let myStr: MyStringType = 'hello';
 myStr = str;
-`}</SyntaxHighlighter>
+`}</Highlight>
 
         <h5>Aliasing Union Type</h5>
         <p>
             1. 유니온 타입은 A도 가능하고 B도 가능한 타입<br/>
             2. 짧게 쓰기 위함
         </p>
-<SyntaxHighlighter languages={"javascript"} style={docco}>{`
+<Highlight languages={"javascript"}>{`
 type StringOrNumber = string | number;
 let b: StringOrNumber;
 
@@ -70,20 +70,20 @@ b = 0; // OK
 function test(arg: StringOrNumber): StringOrNumber {
     return arg;
 }
-`}</SyntaxHighlighter>
+`}</Highlight>
 
         <h5>Aliasing Tuple</h5>
         <p>
             1. 튜플 타입에 별칭을 줘서 여러 곳에서 사용할 수 있게 한다.
             {/* Array에 다양한 타입을 담을 수 있는 것이 튜플 */}
         </p>
-<SyntaxHighlighter languages={"javascript"} style={docco}>{`
+<Highlight languages={"javascript"}>{`
 let person: [string, number] = ['sz', 20];
 
 type PersonTuple = [string, number];
 
 let another: PersonTuple = ['Hyo', 20];
-`}</SyntaxHighlighter>
+`}</Highlight>
     </div>
  
 
@@ -95,7 +95,7 @@ let another: PersonTuple = ['Hyo', 20];
         </p>
 
         <h5>sample code</h5>
-<SyntaxHighlighter languages={"javascript"} style={docco}>{`
+<Highlight languages={"javascript"}>{`
 type Alias = { num: number } 
 
 interface Interface {
@@ -111,7 +111,7 @@ declare function interfaced(arg: Interface): Interface;
 2. interface 는 interface 로
 
 */
-`}</SyntaxHighlighter>
+`}</Highlight>
     </div>
 
     <div className="page-card">
@@ -121,7 +121,7 @@ declare function interfaced(arg: Interface): Interface;
         </p>
 
         <h5>sample code</h5>
-<SyntaxHighlighter languages={"javascript"} style={docco}>{`
+<Highlight languages={"javascript"}>{`
 type PersonAlias = {
   name: string;
   age: number;
@@ -151,7 +151,7 @@ pi.hello();
 class PersonChild extends PersonAlias {
 
 }
-`}</SyntaxHighlighter>
+`}</Highlight>
     </div>
 </>
 )}

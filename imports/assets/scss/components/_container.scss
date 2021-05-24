@@ -1,12 +1,13 @@
-
 #ma-container-outer {
+    width: inherit;
     display: flex;
     flex-direction: row;
-    width: inherit;
     overflow-y: auto;
+    font-family: NanumBarunGothic;
 }
 #ma-container-inner {
     display: flex;
     flex-direction: column;
     width: -webkit-fill-available;
+    font-family: NanumBarunGothic;
 }

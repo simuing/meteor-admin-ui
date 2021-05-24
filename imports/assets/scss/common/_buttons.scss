@@ -58,3 +58,26 @@
         background-color: rgb(71, 71, 71);
     }
 }
+
+
+// TOP button
+#ma-btn-gotop {
+    color: $color-white;
+    cursor: pointer;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 2rem;
+    bottom: 3rem;
+    width: 4rem;
+    height: 4rem;
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 50%;
+    transition: 0.3s;
+
+    &:hover {
+        bottom: 3.3rem;
+        transition: 0.2s;
+    }
+}

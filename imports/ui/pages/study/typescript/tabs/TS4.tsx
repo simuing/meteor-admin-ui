@@ -1,6 +1,6 @@
 import React from 'react';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import Highlight from 'react-highlight';
+
 
 /**
  * @description Interface
@@ -19,7 +19,7 @@ const TS4 = () => {
         </p>
 
 <h5>type만 지정하여 선언한 예시</h5>
-<SyntaxHighlighter languages={"javascript"} style={docco}>{`
+<Highlight languages={"javascript"}>{`
 function hello(person: { name: string; age: number; }): void {
   console.log(person.name + ' 입니다');
 }
@@ -28,10 +28,10 @@ const p: { name: string; age: number; } = {
   name: 'Ann',
   age: 35
 };
-`}</SyntaxHighlighter>
+`}</Highlight>
 
 <h5>interface를 적용한 예시</h5>
-<SyntaxHighlighter languages={"javascript"} style={docco}>{`
+<Highlight languages={"javascript"}>{`
 interface Person {
   name: string;
   age: number;
@@ -49,15 +49,15 @@ var Person {
   name: 'Ann',
   age: 35
 }
-`}</SyntaxHighlighter>
+`}</Highlight>
 
 <h5>컴파일 결과</h5>
-<SyntaxHighlighter languages={"javascript"} style={docco}>{`
+<Highlight languages={"javascript"}>{`
 var Person {
   name: 'Ann',
   age: 35
 }
-`}</SyntaxHighlighter>
+`}</Highlight>
     </div>
 
 
@@ -68,7 +68,7 @@ var Person {
       </p>
 
       <h5>sample code</h5>
-<SyntaxHighlighter languages={"javascript"} style={docco}>{`
+<Highlight languages={"javascript"}>{`
 interface Person {
   name: string;
   age?: number;
@@ -77,7 +77,7 @@ interface Person {
 function hello(person: Person): void {
   console.log(person.name + '입니다')
 }
-`}</SyntaxHighlighter>
+`}</Highlight>
     </div>
 
     <div className="page-card">
@@ -87,7 +87,7 @@ function hello(person: Person): void {
       </p>
 
       <h5>sample code</h5>
-<SyntaxHighlighter languages={"javascript"} style={docco}>{`
+<Highlight languages={"javascript"}>{`
 interface Person {
   name: string;
   age?: number;
@@ -115,9 +115,9 @@ const p3: Person = {
   father: p1,
   mother: p2
 }
-`}</SyntaxHighlighter>
+`}</Highlight>
 
-<SyntaxHighlighter languages={"javascript"} style={docco}>{`
+<Highlight languages={"javascript"}>{`
 interface Person {
   name: string;
   [index: string]: string;
@@ -132,7 +132,7 @@ person.anybody = "Anna";
 function hello(p: Person): void {
   console.log(p.name + ' 입니다.');
 }
-`}</SyntaxHighlighter>
+`}</Highlight>
     </div>
     <div className="page-card">
       <h4>ineterface - function in interface</h4>
@@ -140,7 +140,7 @@ function hello(p: Person): void {
       </p>
 
       <h5>sample code</h5>
-<SyntaxHighlighter languages={"javascript"} style={docco}>{`
+<Highlight languages={"javascript"}>{`
 interface Person {
   name: string;
   hello1(): void;
@@ -159,7 +159,7 @@ const person: Person = {
     return '';
   }
 }
-`}</SyntaxHighlighter>
+`}</Highlight>
     </div>
 
 
@@ -169,7 +169,7 @@ const person: Person = {
       </p>
 
       <h5>sample code</h5>
-<SyntaxHighlighter languages={"javascript"} style={docco}>{`
+<Highlight languages={"javascript"}>{`
 interface IPerson {
   name: string;
   age?: number;
@@ -197,7 +197,7 @@ const person = new Person('Mark');
 
 // name, hello
 const per: IPerson = new Person('Anna');
-`}</SyntaxHighlighter>
+`}</Highlight>
     </div>
 
 
@@ -208,7 +208,7 @@ const per: IPerson = new Person('Anna');
       </p>
 
       <h5>sample code</h5>
-<SyntaxHighlighter languages={"javascript"} style={docco}>{`
+<Highlight languages={"javascript"}>{`
 interface HelloPerson {
   // (name: string, age: number): void;
   (name: string, age?: number): void;
@@ -219,7 +219,7 @@ let helloPerson: HelloPerson = function (name: string) {
 }
 
 helloPerson('jang'); // jang 입니다.
-`}</SyntaxHighlighter>
+`}</Highlight>
     </div>
 
 

@@ -82,41 +82,41 @@ Meteor.methods({
                 showyn: 'Y',
                 createdAt: new Date(),
             },
-            {
-                menucd: 'MNST02',
-                menuup: 'MNST00',
-                menunm:  '리액트',
-                url:  '/study/react',
-                menulv:  '2',
-                menugb:  'ST',
-                menuor:  '1',
-                showyn: 'Y',
-                createdAt: new Date(),
-                children: [
-                    {
-                        menucd: 'MNST21',
-                        menuup: 'MNST02',
-                        menunm:  '상태관리',
-                        url:  '/study/react/state',
-                        menulv:  '3',
-                        menugb:  'ST',
-                        menuor:  '1',
-                        showyn: 'Y',
-                        createdAt: new Date()
-                    },
-                    {
-                        menucd: 'MNST22',
-                        menuup: 'MNST02',
-                        menunm:  '리액트 라이브러리',
-                        url:  '/study/react/library',
-                        menulv:  '3',
-                        menugb:  'ST',
-                        menuor:  '2',
-                        showyn: 'Y',
-                        createdAt: new Date()
-                    },
-                ]
-            }
+            // {
+            //     menucd: 'MNST02',
+            //     menuup: 'MNST00',
+            //     menunm:  '리액트',
+            //     url:  '/study/react',
+            //     menulv:  '2',
+            //     menugb:  'ST',
+            //     menuor:  '1',
+            //     showyn: 'Y',
+            //     createdAt: new Date(),
+            //     children: [
+            //         {
+            //             menucd: 'MNST21',
+            //             menuup: 'MNST02',
+            //             menunm:  '상태관리',
+            //             url:  '/study/react/state',
+            //             menulv:  '3',
+            //             menugb:  'ST',
+            //             menuor:  '1',
+            //             showyn: 'Y',
+            //             createdAt: new Date()
+            //         },
+            //         {
+            //             menucd: 'MNST22',
+            //             menuup: 'MNST02',
+            //             menunm:  '리액트 라이브러리',
+            //             url:  '/study/react/library',
+            //             menulv:  '3',
+            //             menugb:  'ST',
+            //             menuor:  '2',
+            //             showyn: 'Y',
+            //             createdAt: new Date()
+            //         },
+            //     ]
+            // }
         ]
     },
     {
