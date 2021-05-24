@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { useTsBtnValue } from '/imports/atoms/tsBtnState';
 import { usePageState } from '/imports/atoms/pageState';
-import { TS1, TS2, TS3, TS4 } from './tabs'
+import { useTsBtnValue } from '/imports/atoms/tsBtnState';
+import { TS1, TS2, TS3, TS4, TS5 } from './tabs'
 
 export const TypeScript = () => {
     const [pageState, setPageState] = usePageState();
@@ -28,6 +28,7 @@ export const TypeScript = () => {
             case '2': result = <TS2/>; break;
             case '3': result = <TS3/>; break;
             case '4': result = <TS4/>; break;
+            case '5': result = <TS5/>; break;
             default: break;
         }
         return result;

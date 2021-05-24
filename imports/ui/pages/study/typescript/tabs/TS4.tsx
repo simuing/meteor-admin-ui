@@ -1,24 +1,25 @@
 import React from 'react';
-import Highlight from 'react-highlight';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 /**
  * @description Interface
  * @author silverzero
  */
 const TS4 = () => {
-return (
+  return (
   <>
     <h3 className="page-subtitle">
         Interface
     </h3>
 
     <div className="page-card">
-        <h4>Interface</h4>
+        <h4>Interface - basic</h4>
         <p>
         </p>
 
 <h5>type만 지정하여 선언한 예시</h5>
-<Highlight languages={"javascript"}>{`
+<SyntaxHighlighter languages={"javascript"} style={docco}>{`
 function hello(person: { name: string; age: number; }): void {
   console.log(person.name + ' 입니다');
 }
@@ -27,10 +28,10 @@ const p: { name: string; age: number; } = {
   name: 'Ann',
   age: 35
 };
-`}</Highlight>
+`}</SyntaxHighlighter>
 
 <h5>interface를 적용한 예시</h5>
-<Highlight languages={"typescript"}>{`
+<SyntaxHighlighter languages={"javascript"} style={docco}>{`
 interface Person {
   name: string;
   age: number;
@@ -48,15 +49,15 @@ var Person {
   name: 'Ann',
   age: 35
 }
-`}</Highlight>
+`}</SyntaxHighlighter>
 
 <h5>컴파일 결과</h5>
-<Highlight languages={"typescript"}>{`
+<SyntaxHighlighter languages={"javascript"} style={docco}>{`
 var Person {
   name: 'Ann',
   age: 35
 }
-`}</Highlight>
+`}</SyntaxHighlighter>
     </div>
 
 
@@ -67,7 +68,7 @@ var Person {
       </p>
 
       <h5>sample code</h5>
-<Highlight languages={"javascript"}>{`
+<SyntaxHighlighter languages={"javascript"} style={docco}>{`
 interface Person {
   name: string;
   age?: number;
@@ -76,10 +77,154 @@ interface Person {
 function hello(person: Person): void {
   console.log(person.name + '입니다')
 }
-`}</Highlight>
+`}</SyntaxHighlighter>
     </div>
+
+    <div className="page-card">
+      <h4>ineterface - optional property(2)</h4>
+      <p>
+      
+      </p>
+
+      <h5>sample code</h5>
+<SyntaxHighlighter languages={"javascript"} style={docco}>{`
+interface Person {
+  name: string;
+  age?: number;
+}
+
+function hello(p: Person): void {
+  console.log(person.name + '입니다')
+}
+
+const p1: Person = {
+  name: 'Mark',
+  age: 34,
+};
+
+const p2: Person = {
+  name: 'Anna',
+  systers: [
+    'Sung',
+    'Chan'
+  ]
+};
+
+const p3: Person = {
+  name: 'jang',
+  father: p1,
+  mother: p2
+}
+`}</SyntaxHighlighter>
+
+<SyntaxHighlighter languages={"javascript"} style={docco}>{`
+interface Person {
+  name: string;
+  [index: string]: string;
+}
+
+const person: Person = {
+  name: 'Mark'
+};
+
+person.anybody = "Anna";
+
+function hello(p: Person): void {
+  console.log(p.name + ' 입니다.');
+}
+`}</SyntaxHighlighter>
+    </div>
+    <div className="page-card">
+      <h4>ineterface - function in interface</h4>
+      <p>
+      </p>
+
+      <h5>sample code</h5>
+<SyntaxHighlighter languages={"javascript"} style={docco}>{`
+interface Person {
+  name: string;
+  hello1(): void;
+  hello2(): void;
+  hello3(): string;
+  hello4?(): string;
+}
+
+const person: Person = {
+  name: 'Mark',
+  hello1: function () {
+  },
+  hello2: () => {
+  },
+  hello3: (): string => {
+    return '';
+  }
+}
+`}</SyntaxHighlighter>
+    </div>
+
+
+    <div className="page-card">
+      <h4>class implements interface</h4>
+      <p>
+      </p>
+
+      <h5>sample code</h5>
+<SyntaxHighlighter languages={"javascript"} style={docco}>{`
+interface IPerson {
+  name: string;
+  age?: number;
+  hello(): void;
+}
+
+class Person implements IPerson {
+  name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  hello(): void {
+    console.log(this.name + ' 입니다.');
+  }
+  
+  public hi(): void {
+    console.log(this.name + ' 임.');
+  }
+}
+
+// name, hello, hi
+const person = new Person('Mark');
+
+// name, hello
+const per: IPerson = new Person('Anna');
+`}</SyntaxHighlighter>
+    </div>
+
+
+    <div className="page-card">
+      <h4>function interface</h4>
+      <p>
+        함수의 타입 체크는 할당할 때가 아니라 사용할 때 한다.
+      </p>
+
+      <h5>sample code</h5>
+<SyntaxHighlighter languages={"javascript"} style={docco}>{`
+interface HelloPerson {
+  // (name: string, age: number): void;
+  (name: string, age?: number): void;
+}
+
+let helloPerson: HelloPerson = function (name: string) {
+  console.log(name + ' 입니다.');
+}
+
+helloPerson('jang'); // jang 입니다.
+`}</SyntaxHighlighter>
+    </div>
+
+
   </>
-)
+  )
 }
 
 export default TS4;

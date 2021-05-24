@@ -7,13 +7,14 @@ const tsBtnState = atom({
         {name: '2' , title: 'Type'},
         {name: '3' , title: 'Type Assertionsm, alias'},
         {name: '4' , title: 'Interface'},
-        {name: '5' , title: 'Class'},
-        {name: '6' , title: 'Generic'},
-        {name: '7' , title: 'iterator'},
-        {name: '8' , title: 'Decorator'},
-        {name: '9' , title: 'Type Inference'},
-        {name: '10', title: 'React with TypeScript'},
-        {name: '11', title: 'React Migration'}
+        {name: '5' , title: 'Indexable Types'},
+        {name: '6' , title: 'Class'},
+        {name: '7' , title: 'Generic'},
+        {name: '8' , title: 'iterator'},
+        {name: '9' , title: 'Decorator'},
+        {name: '10' , title: 'Type Inference'},
+        {name: '11', title: 'React with TypeScript'},
+        {name: '12', title: 'React Migration'}
     ]
 })
 
