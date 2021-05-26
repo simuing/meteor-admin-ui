@@ -105,25 +105,29 @@
         }
 
         // 부제목
-        h4 {
+        &>h4 {
             color: orange;
             // text-align: center;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: bold;
             margin-bottom: 1.7rem;
         }
 
         // 부부제목
-        h5 {
-            font-size: 1.2rem;
+        &>h5 {
+            font-size: 1.25rem;
             font-weight: bold;
             margin-top: 1.8rem;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.7rem;
         }
 
-        p {
+        &>p {
             display: block;
             margin-bottom: 1rem;
+        }
+
+        &>span {
+            font-size: 12px;
         }
 
         ul {
