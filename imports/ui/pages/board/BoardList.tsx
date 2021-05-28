@@ -19,16 +19,16 @@ export const BoardList = () => {
   const boards: IBoard[] = boardsTracker();
 
   useEffect(() => {
-    console.log('[INFO] BoardList.tsx componentDidMount');
+    console.info('[INFO]BoardList.tsx componentDidMount');
     return () =>{
-      console.log('[INFO] BoardList.tsx componentWillUnMount')
+      console.info('[INFO]BoardList.tsx componentWillUnMount')
     }
   }, [])
 
   useEffect(() => {
-    console.log('useEffect boards: ', boards);
+    console.info('[INFO] useEffect boards: ', boards);
     return () =>{
-      console.log('boards clean')
+      console.info('[INFO] boards clean')
     }
   }, [boards])
 

@@ -5,10 +5,10 @@ export const Study = () => {
     let history = useHistory();
 
     useEffect(() => {
-        console.log('[INFO] Study page updated')
+        console.info('[INFO]Study page updated')
         history.push("/study/typescript"); //타입스크립트 화면으로 이동..
         return () => {
-            console.log('[INFO] Study page clear')
+            console.info('[INFO]Study page clear')
         }
     },[])
 

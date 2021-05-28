@@ -52,7 +52,7 @@ export const LeftMenu = () => {
 
   // url 변경 이벤트
   useEffect(() => {
-    console.log(pathName)
+    // console.log(pathName)
     const selectedMenu = menus.find(menu=>menu.url.includes(pathName));
     if(selectedMenu) {
       setMenuState(selectedMenu);

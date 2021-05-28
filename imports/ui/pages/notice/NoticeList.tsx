@@ -19,9 +19,9 @@ export const NoticeList = () => {
   const notices: INotice[] = noticesTracker();
 
   useEffect(() => {
-    console.log('[INFO] noticeList.tsx componentDidMount');
+    console.info('[INFO]noticeList.tsx componentDidMount');
     return () =>{
-      console.log('[INFO] noticeList.tsx componentWillUnMount')
+      console.info('[INFO]noticeList.tsx componentWillUnMount')
     }
   }, [])
 

@@ -8,9 +8,9 @@ export const TypeScript = () => {
     const btnState = useTsBtnValue();
 
     useEffect(() => {
-        console.log('[INFO] TypeScript page updated: '+ pageState.tsPage);
+        console.info('[INFO]TypeScript page updated: '+ pageState.tsPage);
         return () => {
-            console.log('[INFO] TypeScript page clear: '+ pageState.tsPage);
+            console.info('[INFO]TypeScript page clear: '+ pageState.tsPage);
         }
     },[pageState])
 
