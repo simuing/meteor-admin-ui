@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { usePageState } from '/imports/atoms/pageState';
 import { useTsBtnValue } from '/imports/atoms/tsBtnState';
-import { TS1, TS2, TS3, TS4, TS5, TS6 } from './tabs'
+import { Decorator, Generic, Iterator, TS1, TS2, TS3, TS4, TS5, TS6, TypeInference } from './tabs'
 
 export const TypeScript = () => {
     const [pageState, setPageState] = usePageState();
@@ -30,6 +30,10 @@ export const TypeScript = () => {
             case '4': result = <TS4/>; break;
             case '5': result = <TS5/>; break;
             case '6': result = <TS6/>; break;
+            case '7': result = <Generic/>; break;
+            case '8': result = <Iterator/>; break;
+            case '9': result = <Decorator/>; break;
+            case '10': result = <TypeInference/>; break;
             default: break;
         }
         return result;
