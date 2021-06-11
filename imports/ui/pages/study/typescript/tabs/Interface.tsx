@@ -6,7 +6,7 @@ import Highlight from 'react-highlight';
  * @description Interface
  * @author silverzero
  */
-const TS4 = () => {
+const Interface = () => {
   return (
   <>
     <h3 className="page-subtitle">
@@ -227,4 +227,4 @@ helloPerson('jang'); // jang 입니다.
   )
 }
 
-export default TS4;
+export default Interface;

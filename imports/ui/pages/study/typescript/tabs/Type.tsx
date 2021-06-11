@@ -7,7 +7,7 @@ import Highlight from 'react-highlight';
  * @author silverzero
  * @create 2021.5
  */
-const TS2 = () => {
+const Type = () => {
     return (
         <>
             <h3 className="page-subtitle">
@@ -228,4 +228,4 @@ const TS2 = () => {
     )
 }
 
-export default TS2;
+export default Type;

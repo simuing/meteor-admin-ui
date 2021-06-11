@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { usePageState } from '/imports/atoms/pageState';
 import { useTsBtnValue } from '/imports/atoms/tsBtnState';
-import { Decorator, Generic, Iterator, TS1, TS2, TS3, TS4, TS5, TS6, TypeInference } from './tabs'
+import { Decorator, Generic, Introduction, Iterator, WhatIsTypeScript, Type, TypeAssertions, Interface, IndexableTypes, Class, TypeInference } from './tabs'
 
 export const TypeScript = () => {
     const [pageState, setPageState] = usePageState();
@@ -24,12 +24,13 @@ export const TypeScript = () => {
     const getPage = () => {
         let result = (<></>);
         switch (pageState.tsPage) {
-            case '1': result = <TS1/>; break;
-            case '2': result = <TS2/>; break;
-            case '3': result = <TS3/>; break;
-            case '4': result = <TS4/>; break;
-            case '5': result = <TS5/>; break;
-            case '6': result = <TS6/>; break;
+            case '0': result = <Introduction/>; break;
+            case '1': result = <WhatIsTypeScript/>; break;
+            case '2': result = <Type/>; break;
+            case '3': result = <TypeAssertions/>; break;
+            case '4': result = <Interface/>; break;
+            case '5': result = <IndexableTypes/>; break;
+            case '6': result = <Class/>; break;
             case '7': result = <Generic/>; break;
             case '8': result = <Iterator/>; break;
             case '9': result = <Decorator/>; break;

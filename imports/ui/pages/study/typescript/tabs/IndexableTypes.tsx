@@ -7,7 +7,7 @@ import Highlight from 'react-highlight';
  * @description Indexable Types
  * @author silverzero
  */
-const TS5 = () => {
+const IndexableTypes = () => {
   return (
   <>
     <h3 className="page-subtitle">
@@ -81,4 +81,4 @@ interface StringDictionaryNo {
   )
 }
 
-export default TS5;
+export default IndexableTypes;

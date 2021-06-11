@@ -3,6 +3,7 @@ import { atom, useRecoilState, useRecoilValue, useSetRecoilState } from "recoil"
 const tsBtnState = atom({
     key: 'tsBtnState',
     default: [
+        {name: '0' , title: 'Introduction'},
         {name: '1' , title: 'TypeScript'},
         {name: '2' , title: 'Type'},
         {name: '3' , title: 'Type Assertionsm, alias'},

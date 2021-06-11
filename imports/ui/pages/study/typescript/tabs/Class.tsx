@@ -5,7 +5,7 @@ import Highlight from 'react-highlight';
  * @description Indexable Types
  * @author silverzero
  */
-const TS5 = () => {
+const Class = () => {
   return (
   <>
     <h3 className="page-subtitle">
@@ -479,4 +479,4 @@ console.log(car.getSpeed());
   )
 }
 
-export default TS5;
+export default Class;

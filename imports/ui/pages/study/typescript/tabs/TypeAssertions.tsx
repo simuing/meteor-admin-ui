@@ -7,7 +7,7 @@ import Highlight from 'react-highlight';
  * @author silverzero
  * @create 2021.5.18
  */
-const TS3 = () => {
+const TypeAssertions = () => {
 return (
 <>
     <h3 className="page-subtitle">
@@ -156,4 +156,4 @@ class PersonChild extends PersonAlias {
 </>
 )}
 
-export default TS3;
+export default TypeAssertions;

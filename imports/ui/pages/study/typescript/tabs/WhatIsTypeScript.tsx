@@ -1,7 +1,7 @@
 import React from 'react';
 
 // 1 - TypeScript 란?
-const TS1 = () => {
+const WhatIsTypeScript = () => {
     return (
         <>
             <h3 className="page-subtitle">
@@ -71,4 +71,4 @@ const TS1 = () => {
     )
 }
 
-export default TS1;
+export default WhatIsTypeScript;
